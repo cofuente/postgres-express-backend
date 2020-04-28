@@ -1,7 +1,7 @@
 const router = require('express').Router()
 
 // const HttpError = require('../utils/HttpError')
-const { Form, Question } = require('../db/models')
+const { Form } = require('../db/models')
 
 router.param('id', (req, res, next, id) => {
   Form.findById(id)
@@ -20,25 +20,25 @@ router.get('/', (req, res, next) => {
 })
 
 // router.post('/', (req, res, next) => {
-//   User.create(req.body)
-//     .then(user => res.status(201).json(user))
+//   Form.create(req.body)
+//     .then(form => res.status(201).json(form))
 //     .catch(next)
 // })
 
 // router.get('/:id', (req, res, next) => {
-//   req.requestedUser.reload(User.options.scopes.populated())
-//     .then(requestedUser => res.json(requestedUser))
+//   req.requestedForm.reload(Form.options.scopes.populated())
+//     .then(requestedForm => res.json(requestedForm))
 //     .catch(next)
 // })
 
 // router.put('/:id', (req, res, next) => {
-//   req.requestedUser.update(req.body)
-//     .then(user => res.json(user))
+//   req.requestedForm.update(req.body)
+//     .then(form => res.json(form))
 //     .catch(next)
 // })
 
 // router.delete('/:id', (req, res, next) => {
-//   req.requestedUser.destroy()
+//   req.requestedForm.destroy()
 //     .then(() => res.sendStatus(204))
 //     .catch(next)
 // })
