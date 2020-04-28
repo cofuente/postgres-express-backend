@@ -9,7 +9,6 @@ async function seed() {
 
   const questions = await Promise.all([
     Question.create({
-      // questionUUID: 
       questionType: 'multiplechoice',
       questionPrompt: 'what is your gender?',
       possibleAnswers: [
@@ -20,17 +19,14 @@ async function seed() {
       ]
     }),
     Question.create({
-      // questionUUID: 
       questionType: 'input',
       questionPrompt: 'what is your name?',
     }),
     Question.create({
-      // questionUUID: 
       questionType: 'paragraph',
       questionPrompt: 'what is your address?',
     }),
     Question.create({
-      // questionUUID: 
       questionType: 'checkbox',
       questionPrompt: 'do you verify your answers in this form are all true to the best of your knowledge?',
       possibleAnswers: [
