@@ -8,22 +8,17 @@ const Question = db.define('question', {
     defaultValue: Sequelize.UUIDV1, // or Sequelize.UUIDV4, this is to make sequelize generate the ids automatically
     unique: true
   },
-  textPrompt: {
+  questionType: {
+    type: Sequelize.ENUM('multiplechoice', 'checkbox', 'paragraph'), // for purposes of rendering the form accordingly in the front end
+    allowNull: false,
+  },
+  questionPrompt: {
     type: Sequelize.STRING,
     allowNull: false,
   },
   possibleAnswers: {
     type: Sequelize.ARRAY(Sequelize.TEXT),
-    defaultValue: []
-  }
-}, {
-  scopes: {
-    populated: () => ({
-      include: [{
-        model: db.model('form'),
-        as: 'region'
-      }]
-    })
+    defaultValue: ['']
   }
 })
 

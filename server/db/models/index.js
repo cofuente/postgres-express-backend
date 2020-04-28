@@ -1,19 +1,27 @@
 
 const db = require('../_db')
-
 const Question = require('./question')
+const Answer = require('./answer')
 const Form = require('./form')
+const Submission = require('./submission')
 
-Form.hasMany(Question, {
-  foreignKey: 'region_id',
-  onDelete: 'cascade', // remove all associated stories
-  hooks: true // makes the cascade actually work. Yay Sequelize!
+
+Answer.belongsTo(Question, {
+  foreignKey: 'questionId',
+  allowNull: false
+}) // provides answer.getQuestion() method on all answer instances
+
+Form.hasMany(Question) // lets you do form.getQuestions()
+
+Answer.belongsTo(Submission, {
+  foreignKey: 'submissionId', // test if UUID also works
+  allowNull: false
 })
-
-Question.belongsTo(Form, {as: 'region'})
 
 module.exports = {
 	db,
 	Question,
-	Form
+  Answer,
+  Form,
+  Submission
 }
