@@ -4,8 +4,9 @@ const db = require('../_db')
 
 const Answer = db.define('answer', {
   answerUUID: {
+    primaryKey: true,
     type: Sequelize.UUID,
-    defaultValue: Sequelize.UUIDV1, // or Sequelize.UUIDV4, this is to make sequelize generate the ids automatically
+    defaultValue: Sequelize.UUIDV4,
     unique: true
   },
   value: {
