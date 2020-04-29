@@ -29,8 +29,7 @@ async function seed() {
   ])
 
   const forms = await Promise.all([
-    Form.create(
-      {
+    Form.create({
         stateCode: 'NY',
         questions: [
           {
@@ -42,19 +41,16 @@ async function seed() {
             questionPrompt: 'What is your address?',
           }
         ]
-      },
-      { 
-        include: [Question] 
+      }, { 
+        include: [ Question ] 
       }
-    )
-    .then(
+    ).then(
       (form) => form.addQuestions([
         '73c7ed89-8c6f-4e6e-8d19-ca0250b37cb0',
         '1ac4b921-0568-4fcc-af89-bf46b64f4068'
       ])
     ),
-    Form.create(
-      {
+    Form.create({
         stateCode: 'CA',
         questions: [
           {
@@ -68,12 +64,10 @@ async function seed() {
             ]
           }
         ]
-      }, 
-      {
-        include: [Question]
+      }, {
+        include: [ Question ]
       }
-    )
-    .then(
+    ).then(
       (form) => form.addQuestions([
         '73c7ed89-8c6f-4e6e-8d19-ca0250b37cb0',
         '1ac4b921-0568-4fcc-af89-bf46b64f4068'
@@ -81,13 +75,79 @@ async function seed() {
     ),
   ])
 
-  // const answers = await 
-  
+  const submissions = await Promise.all([
+    Form.findOne({
+        where: {
+          stateCode: 'CA'
+        }
+      }).then(
+      (form) => {
+        const uuidFound = form['dataValues']['formUUID']
+        return Submission.create({
+          formUUID: `${uuidFound}`,
+          answers: [{
+              questionUUID: '73c7ed89-8c6f-4e6e-8d19-ca0250b37cb0',
+              value: 'checked'
+            }, {
+              questionUUID: '1ac4b921-0568-4fcc-af89-bf46b64f4068',
+              value: 'Or the European unladen swallow?',
+            }
+          ]
+        }, {
+          include: [ Answer ]
+        })
+      }
+    ),
+    Form.findOne({
+      where: {
+        stateCode: 'CA'
+      }
+      }).then(
+      (form) => {
+        const uuidFound = form['dataValues']['formUUID']
+        return Submission.create({
+          formUUID: `${uuidFound}`,
+          answers: [{
+              questionUUID: '73c7ed89-8c6f-4e6e-8d19-ca0250b37cb0',
+              value: 'checked'
+            }, {
+              questionUUID: '1ac4b921-0568-4fcc-af89-bf46b64f4068',
+              value: 'Depends. Are you refering to the African unladen swallow?',
+            }
+          ]
+        }, {
+          include: [ Answer ]
+        })
+      }
+    ),
+    Form.findOne({
+      where: {
+        stateCode: 'NY'
+      }
+      }).then(
+      (form) => {
+        const uuidFound = form['dataValues']['formUUID']
+        return Submission.create({
+          formUUID: `${uuidFound}`,
+          answers: [
+            {
+              questionUUID: '73c7ed89-8c6f-4e6e-8d19-ca0250b37cb0',
+              value: 'checked'
+            }, {
+              questionUUID: '1ac4b921-0568-4fcc-af89-bf46b64f4068',
+              value: 'Depends. Are you refering to the African unladen swallow?',
+            }
+          ]
+        }, {
+          include: [ Answer ]
+        })
+      }
+    )
+  ])
+
   console.log(`seeded ${questions.length} basic questions`)
   console.log(`seeded ${forms.length} form examples`)
-
-  // console.log(`seeded ${users.length} users`)
-  // console.log(`seeded ${users.length} users`)
+  console.log(`seeded ${submissions.length} individual form submissions`)
   console.log(`seeded successfully`)
 
   // const result = await Form.findOne({
@@ -101,11 +161,13 @@ async function seed() {
   // // console.log(result)
   // const q0 = result['dataValues']['questions'][0]['dataValues']['questionPrompt']
   // const q1 = result['dataValues']['questions'][1]['dataValues']['questionPrompt']
-  // // const q2 = result['dataValues']['questions'][2]['dataValues']['questionPrompt']
+  // const q2 = result['dataValues']['questions'][2]['dataValues']['questionPrompt']
 
 
-  // // console.log(q0,q1,q2)
+  // console.log(q0,q1,q2)
   // console.log(q0,q1)
+
+  // what is your gender? Do you solemnly swear to the best of your knowledge that all of these answers are correct? What is the airspeed velocity of an unladen swallow?
 }
 
 // We've separated the `seed` function from the `runSeed` function.

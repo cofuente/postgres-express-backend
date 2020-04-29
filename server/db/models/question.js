@@ -13,7 +13,6 @@ const Question = db.define('question', {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  // for purposes of rendering the form accordingly in the front end
   questionType: {
     type: Sequelize.ENUM(
       'multiplechoice',
@@ -28,7 +27,9 @@ const Question = db.define('question', {
     defaultValue: [
       'n/a'
     ]
-  }
+  },
+}, {
+  timestamps: false
 })
 
 module.exports = Question

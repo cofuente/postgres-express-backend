@@ -13,6 +13,8 @@ const Form = db.define('form', {
     // expand this list accordingly
     type: Sequelize.ENUM('NY', 'CA')
   },
+}, {
+  timestamps: false
 })
 
 module.exports = Form

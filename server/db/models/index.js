@@ -15,24 +15,11 @@ Form.belongsToMany(Question, {
   foreignKey: 'formUUID'
 })
 
-// Answer.belongsTo(Question, {
-//   foreignKey: 'questionId',
-//   allowNull: false
-// }) // provides answer.getQuestion() method on all answer instances
-
-// Form.hasMany(Question, { as: 'questionList' }) // lets you do form.getQuestions()
-
-// QuestionsForms.belongsTo(Question, { foreignKey: 'questionUUID' })
-// QuestionsForms.belongsTo(Question) 
-// QuestionsForms.belongsTo(Form, { foreignKey: 'formUUID' })
-// QuestionsForms.belongsTo(Form) 
-
-
-
-// Answer.belongsTo(Submission, {
-//   foreignKey: 'submissionId', // test if UUID also works
-//   allowNull: false
-// })
+Submission.belongsTo(Form, { foreignKey: 'formUUID' })
+  
+Answer.belongsTo(Question, { foreignKey: 'questionUUID' })
+  
+Submission.hasMany(Answer, { foreignKey: 'submissionUUID' })
 
 module.exports = {
 	db,

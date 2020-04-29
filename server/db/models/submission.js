@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize')
-
 const db = require('../_db')
+const { Form } = require('../models')
 
 const Submission = db.define('submission', {
   submissionUUID: {
@@ -9,19 +9,14 @@ const Submission = db.define('submission', {
     defaultValue: Sequelize.UUIDV4,
     unique: true
   },
-  timeSubmitted: {
-    type: Sequelize.DATE,
-    allowNull: false
+  formUUID: {
+    type: Sequelize.UUID,
+    references: {
+      model: Form,
+      key: 'formUUID'
+    },
+    allowNull:false
   }
-// }, {                                    bring in all answers with the matching submissionId, possibly include questions as well
-//   scopes: {
-//     populated: () => ({
-//       include: [{
-//         model: db.model('answer'),
-//         attributes: {exclude: ['potentialAnswers']}
-//       }]
-//     })
-//   }
 })
 
 module.exports = Submission
