@@ -10,18 +10,9 @@ const Form = db.define('form', {
     unique: true
   },
   stateCode: {
-    // later wanna make this one of various state codes, add validations, etc
+    // expand this list accordingly
     type: Sequelize.ENUM('NY', 'CA')
   },
-// }, {                      bring in all questions for a specified form, also consider bringing in all submissions to this form
-//   scopes: {
-//     populated: () => ({
-//       include: [{
-//         model: db.model('question'),
-//         attributes: {exclude: ['potentialAnswers']}
-//       }]
-//     })
-//   }
 })
 
 module.exports = Form
