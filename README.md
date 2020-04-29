@@ -1,9 +1,9 @@
 # postgres-express-backend
 TD: 
-add answers model
+draft up the db diagram
+  - consider adding methods
 add linter + formatter + nvmrc
 add sequelize logger
-add seed.js
 consider refactoring httperror.js
 
 
