@@ -7,7 +7,8 @@
     "test": "test",
     "seed": "node server/utils/seed.js",
     "methods": "node server/utils/methods.js",
-    "start": "node index"
+    "start": "node index",
+    "postinstall": "npm run seed"
   },
   "repository": {
     "type": "git",
