@@ -14,14 +14,13 @@ async function methodTest() {
       as: 'questions'
     }
   })
-  console.log(`attempting eager loading below`)
 
   console.log(result)
 
 }
 
 async function runMethodTest() {
-  console.log('seeding...')
+  console.log(`attempting methods...`)
   try {
     await methodTest()
   } catch (err) {
