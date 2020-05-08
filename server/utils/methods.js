@@ -1,7 +1,13 @@
+/* eslint-disable no-undef */
 'use strict'
 
 const db = require('../db/_db')
-const {Form, Question, Answer, Submission} = require('../db/models')
+const {
+  Form,
+  Question,
+  // Answer,
+  // Submission
+} = require('../db/models')
 
 async function methodTest() {
   await db.sync()
@@ -20,7 +26,7 @@ async function methodTest() {
 }
 
 async function runMethodTest() {
-  console.log(`attempting methods...`)
+  console.log('attempting methods...')
   try {
     await methodTest()
   } catch (err) {
