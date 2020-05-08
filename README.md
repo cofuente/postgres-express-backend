@@ -2,7 +2,7 @@
 TD: 
 draft up the db diagram
   - consider adding methods
-add linter + formatter
+add prettier config file
 add sequelize logger
 consider refactoring httperror.js
 
