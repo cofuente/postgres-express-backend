@@ -55,7 +55,7 @@ async function seed() {
         questions: [
           {
             questionType: 'multiplechoice',
-            questionPrompt: 'what is your gender?',
+            questionPrompt: 'What is your gender?',
             possibleAnswers: [
               'male-ish',
               'female-ish',
@@ -149,28 +149,9 @@ async function seed() {
   console.log(`seeded ${forms.length} form examples`)
   console.log(`seeded ${submissions.length} individual form submissions`)
   console.log(`seeded successfully`)
-
-  // const result = await Form.findOne({
-  //   where: { stateCode: 'CA' },
-  //   include: {
-  //     model: Question,
-  //     as: 'questions'
-  //   }
-  // })
-  // console.log(`attempting eager loading below`)
-  // // console.log(result)
-  // const q0 = result['dataValues']['questions'][0]['dataValues']['questionPrompt']
-  // const q1 = result['dataValues']['questions'][1]['dataValues']['questionPrompt']
-  // const q2 = result['dataValues']['questions'][2]['dataValues']['questionPrompt']
-
-
-  // console.log(q0,q1,q2)
-  // console.log(q0,q1)
-
-  // what is your gender? Do you solemnly swear to the best of your knowledge that all of these answers are correct? What is the airspeed velocity of an unladen swallow?
 }
 
-// We've separated the `seed` function from the `runSeed` function.
+// Separated the `seed` function from the `runSeed` function.
 // This way we can isolate the error handling and exit trapping.
 // The `seed` function is concerned only with modifying the database.
 async function runSeed() {
@@ -194,5 +175,5 @@ if (module === require.main) {
   runSeed()
 }
 
-// we export the seed function for testing purposes
+// Exporting the seed function for testing purposes
 module.exports = seed
