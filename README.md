@@ -4,6 +4,7 @@ draft up the db diagram
   - consider adding methods
 add prettier config file
 add sequelize logger
+- check all http status codes
 consider refactoring httperror.js
 
 

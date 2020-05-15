@@ -7,9 +7,7 @@
     "test": "test",
     "seed": "node server/utils/seed.js",
     "methods": "node server/utils/methods.js",
-    "start": "node index",
-    "db-init": "pg-init pebe",
-    "postinstall": "npm run db-init"
+    "start": "node index"
   },
   "repository": {
     "type": "git",

@@ -1,47 +1,21 @@
 const router = require('express').Router()
 
-// const HttpError = require('../utils/HttpError')
-const { Submission } = require('../db/models')
+const { Submission, Answer } = require('../db/models')
 
-router.param('id', (req, res, next, id) => {
-  Submission.findById(id)
-    .then(submission => {
-      if (!submission) throw HttpError(404)
-      req.requestedSubmission = submission
-      next()
+// form is filled and a new submission is created
+// requires formUUID & answers array
+router.post('/', async (req, res, next) => {
+  try {
+    const newSubmission = await Submission.create(req.body, {
+      include: [ Answer ]
     })
-    .catch(next)
+    if (newSubmission) res.status(201).json(newSubmission)
+    else res.status(500).send('Something went wrong')
+  } catch (error) {
+    next(error)
+  } 
 })
 
-
-router.post('/', (req, res, next) => {
-  Submission.create(req.body)
-  .then(submission => res.status(201).json(submission))
-  .catch(next)
-})
-
-// router.get('/', (req, res, next) => {
-//   Submission.findAll()
-//     .then(submissions => res.json(submissions))
-//     .catch(next)
-// })
-
-// router.get('/:id', (req, res, next) => {
-//   req.requestedSubmission.reload(Submission.options.scopes.populated())
-//     .then(requestedSubmission => res.json(requestedSubmission))
-//     .catch(next)
-// })
-
-// router.put('/:id', (req, res, next) => {
-//   req.requestedSubmission.update(req.body)
-//     .then(submission => res.json(submission))
-//     .catch(next)
-// })
-
-// router.delete('/:id', (req, res, next) => {
-//   req.requestedSubmission.destroy()
-//     .then(() => res.sendStatus(204))
-//     .catch(next)
-// })
+// TODO: consider writing an emergency delete all submissions route that will also delete answers
 
 module.exports = router
