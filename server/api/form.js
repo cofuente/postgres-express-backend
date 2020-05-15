@@ -39,6 +39,7 @@ router.get('/:formUUID', async (req, res, next) => {
 })
 
 // add a question to a form
+// TODO: add error handling for non-existent questions
 router.put('/:formUUID', async (req, res, next) => {
   try {
     const formToUpdate = await Form.findByPk(req.params.formUUID)
@@ -47,15 +48,15 @@ router.put('/:formUUID', async (req, res, next) => {
   } catch (error) {
     next(error)
   }
-  // req.requestedForm.addQuestions(req.body)
-  //   .then(form => res.status(202).json(form))
-  //   .catch(next)
 })
 
+
+// delete a form
+// TODO: make sure it does not delete the q's as well
 router.delete('/:formUUID', async (req, res, next) => {
   try {
     await Form.destroy({ where: { formUUID: req.params.formUUID } })
-    res.status(204).send()
+    res.status(204).send('deletion complete')
   } catch (error) {
     next(error)
   }
