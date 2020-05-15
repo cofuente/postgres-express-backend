@@ -22,7 +22,12 @@ given a submission id, get all answers to that submission (eager load questions?
 given a form id, get all submission id's to that form (eager load answers?)
 
 
+# DEPLOYMENT 
+login with: 
+`heroku login`
 
+and then run: 
+`git push heroku master`
 
 
 
