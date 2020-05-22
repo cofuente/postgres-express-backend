@@ -30,6 +30,7 @@ async function seed() {
 
   const forms = await Promise.all([
     Form.create({
+        title: 'example form title 1',
         stateCode: 'NY',
         questions: [
           {
@@ -51,6 +52,7 @@ async function seed() {
       ])
     ),
     Form.create({
+        title: 'example form title 2',
         stateCode: 'CA',
         questions: [
           {
