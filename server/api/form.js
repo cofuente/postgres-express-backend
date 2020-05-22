@@ -27,7 +27,6 @@ router.post('/', async (req, res, next) => {
 })
 
 // get a specific form
-// TODO: alter this to include a form's questions
 router.get('/:formUUID', async (req, res, next) => {
   try {
     let requestedForm = await Form.findByPk(req.params.formUUID)
@@ -39,7 +38,6 @@ router.get('/:formUUID', async (req, res, next) => {
 })
 
 // add a question to a form
-// TODO: add error handling for non-existent questions
 router.put('/:formUUID', async (req, res, next) => {
   try {
     const formToUpdate = await Form.findByPk(req.params.formUUID)
@@ -52,7 +50,6 @@ router.put('/:formUUID', async (req, res, next) => {
 
 
 // delete a form
-// TODO: make sure it does not delete the q's as well
 router.delete('/:formUUID', async (req, res, next) => {
   try {
     await Form.destroy({ where: { formUUID: req.params.formUUID } })

@@ -35,9 +35,6 @@ router.get('/:questionUUID', async (req, res, next) => {
   }
 })
 
-// TODO: make a PUT method to update an existing question?
-
-
 // delete a question
 router.delete('/:questionUUID', async (req, res, next) => {
   try {

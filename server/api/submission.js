@@ -16,6 +16,4 @@ router.post('/', async (req, res, next) => {
   } 
 })
 
-// TODO: consider writing an emergency delete all submissions route that will also delete answers
-
 module.exports = router
