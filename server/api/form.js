@@ -15,7 +15,7 @@ router.get('', async (req, res, next) => {
   }
 })
 
-// make a new form, requires state code
+// make a new form, requires state code and title
 router.post('/', async (req, res, next) => {
   try {
     const newForm = await Form.create(req.body)

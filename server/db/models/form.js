@@ -10,9 +10,14 @@ const Form = db.define('form', {
     unique: true
   },
   stateCode: {
-    // expand this list accordingly
-    type: Sequelize.ENUM('NY', 'CA')
+    // expand this list to include other state codes
+    type: Sequelize.ENUM('NY', 'CA'),
+    allowNull: false,
   },
+  title: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  }
 }, {
   timestamps: false
 })
