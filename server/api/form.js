@@ -1,6 +1,5 @@
 const router = require('express').Router()
-
-const { Form } = require('../db/models')
+const { Form, Question } = require('../db/models')
 
 
 // get all forms
@@ -29,7 +28,14 @@ router.post('/', async (req, res, next) => {
 // get a specific form
 router.get('/:formUUID', async (req, res, next) => {
   try {
-    let requestedForm = await Form.findByPk(req.params.formUUID)
+    const { formUUID } = req.params
+    let requestedForm = await Form.findOne({
+      where: { formUUID },
+      include: {
+        model: Question,
+        as: 'questions'
+      }
+    })
     if (requestedForm) res.status(200).json(requestedForm) 
     else res.status(404).send('form not found')
   } catch (error) {
