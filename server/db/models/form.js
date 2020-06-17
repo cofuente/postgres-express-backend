@@ -18,8 +18,6 @@ const Form = db.define('form', {
     type: Sequelize.STRING,
     allowNull: false,
   }
-}, {
-  timestamps: false
 })
 
 module.exports = Form
