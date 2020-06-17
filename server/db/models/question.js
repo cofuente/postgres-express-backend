@@ -9,6 +9,10 @@ const Question = db.define('question', {
     defaultValue: Sequelize.UUIDV4,
     unique: true
   },
+  required: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
+  },
   questionPrompt: {
     type: Sequelize.STRING,
     allowNull: false,

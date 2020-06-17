@@ -11,6 +11,7 @@ async function seed() {
     Question.create({
       // Note the UUID's we are pre-assigning our two basic questions here. These strings are not necessary to add questions to the database as Sequelize automatically generates unique UUID's for every new question, but we are making an exception here so that we may refer to that unique Question model instance by its primary key. We will pass these primary keys into various forms' addQuestion() methods later.
       questionUUID: '73c7ed89-8c6f-4e6e-8d19-ca0250b37cb0',
+      required: 'true',
       questionType: 'checkbox',
       questionPrompt: 'Do you solemnly swear to the best of your knowledge that all of these answers are correct?',
       possibleAnswers: [
