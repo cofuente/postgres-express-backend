@@ -53,6 +53,19 @@ async function seed() {
       ])
     ),
     Form.create({
+      formUUID: 'e2ef8eca-d2cf-4e12-816e-8a970fc698e8',
+      title: 'this is the form we are going to delete',
+      stateCode: 'NY',
+    }, { 
+      include: [ Question ] 
+    }
+  ).then(
+    (form) => form.addQuestions([
+      '73c7ed89-8c6f-4e6e-8d19-ca0250b37cb0',
+      '1ac4b921-0568-4fcc-af89-bf46b64f4068'
+    ])
+  ),
+    Form.create({
         title: 'example form title 2',
         stateCode: 'CA',
         questions: [
@@ -125,7 +138,7 @@ async function seed() {
     ),
     Form.findOne({
       where: {
-        stateCode: 'NY'
+        title: 'example form title 1'
       }
       }).then(
       (form) => {
