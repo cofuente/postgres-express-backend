@@ -11,22 +11,24 @@ const {
 
 async function methodTest() {
   await db.sync()
-  console.log('db synced!')
+  console.log('DB Synced!')
+  try {
+    const questionsBefore = await Form.getQuestions('e2ef8eca-d2cf-4e12-816e-8a970fc698e8')
+    console.log('before: ', questionsBefore)
 
-  const result = await Form.findOne({
-    where: { stateCode: 'CA' },
-    include: {
-      model: Question,
-      as: 'questions'
-    }
-  })
+    const formToUpdate = await Form.findByPk('e2ef8eca-d2cf-4e12-816e-8a970fc698e8')
+    // /* ------ the method I'm actually testing ------*/
+    await formToUpdate.assimilateForm('7c21fb1c-88cc-43ea-be7b-5a621955a3ea')
 
-  console.log(result)
-
+    const questionsAfter = await Form.getQuestions('e2ef8eca-d2cf-4e12-816e-8a970fc698e8')
+    console.log('after: ', questionsAfter)
+  } catch (error) {
+    console.log('eeeeeeeeee:', error)
+  }
 }
 
 async function runMethodTest() {
-  console.log('attempting methods...')
+  console.log('attempting methodTest...')
   try {
     await methodTest()
   } catch (err) {
