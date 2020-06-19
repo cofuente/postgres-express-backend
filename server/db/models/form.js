@@ -1,5 +1,4 @@
 const Sequelize = require('sequelize')
-
 const db = require('../_db')
 
 const Form = db.define('form', {
@@ -17,7 +16,17 @@ const Form = db.define('form', {
   title: {
     type: Sequelize.STRING,
     allowNull: false,
-  }
+  },
 })
+Form.getQuestions = async (formUUID) => {
+  const formWithQs = await Form.findOne({ where: {formUUID}, include:{ model: db.model('question')}})
+  const questions = formWithQs.dataValues.questions.map((question) => question.questionUUID)
+  return questions
+}
+
+Form.prototype.assimilateForm = async function (otherFormUUID) {
+  const questionsToAdd = await Form.getQuestions(otherFormUUID)
+  return this.addQuestions(questionsToAdd)
+}
 
 module.exports = Form
