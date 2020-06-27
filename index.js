@@ -1,4 +1,5 @@
 const app = require('./server')
+const api = require('./data.js')
 const PORT = process.env.PORT || 1337
 const { db } = require('./server/db/models')
 const chalkAnimation = require('chalk-animation')
@@ -6,37 +7,39 @@ const express = require('express')
 const path = require('path')
 const frontend = new express();
 const cors = require('cors')
-var axios = require('axios');
-
-const axios = require('axios');
-
-const data'
-
-axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
-  .then(response => {
-    data = response;
-  })
-  .catch(error => {
-    console.log(error);
-  });
-
 
 frontend.use(cors())
 frontend.use(express.json());
 frontend.use(express.urlencoded({ extended: true }))
 
+/*
 frontend.get('/', function(req,res){
   res.status(200)
     .json(data);
 });
+*/
 
 frontend.post('/', function(req,res){
   var data = req.body;
   console.log(data);
 });
 
-frontend.use('/home', express.static('views'));
-frontend.listen(9000);
+// index page
+frontend.use('/', express.static('public'));
+
+// test form in jade
+frontend.use(express.static(path.join(__dirname, 'src/jade/next-distro-fe/')))
+  .set('views', path.join(__dirname, '/src/jade/next-distro-fe/'))
+  .set('view engine', 'jade')
+  .get('/test', function (req, res) {
+    api.data.then(data=>{
+      console.log(data);
+      res.status(200).render('test', data)
+    }).catch(e=>{
+      console.log(e)
+    })
+  })
+  .listen(9000, () => console.log(`Listening on ${ 9000 }`))
 
 var users = [{
   name: "Mohawk",
@@ -78,6 +81,7 @@ frontend.route('/users/:id')
   })
   delete(function(){})
 
+  
 const init = async () => {
   if (require.main === module){
     //will only run when run with npm start and not with npm test to avoid db syncing in multiple threads when running tests

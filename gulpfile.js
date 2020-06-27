@@ -65,7 +65,8 @@ gulp.task('build:css', function () {
 gulp.task('jade', function () {
     gulp.src(
         [
-            jadeSrcDir + 'next-distro-fe/index.jade'
+          jadeSrcDir + 'next-distro-fe/index.jade',
+          jadeSrcDir + 'next-distro-fe/test.jade',
         ]
     )
         .pipe(jade())
