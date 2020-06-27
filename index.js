@@ -34,7 +34,7 @@ frontend.use(express.static(path.join(__dirname, 'src/jade/next-distro-fe/')))
   .get('/test', function (req, res) {
     api.data.then(data=>{
       console.log(data);
-      res.status(200).render('test', data)
+      res.status(200).render('test', {data})
     }).catch(e=>{
       console.log(e)
     })
