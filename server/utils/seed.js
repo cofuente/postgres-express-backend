@@ -23,7 +23,7 @@ async function seed() {
       questionType: 'multiplechoice',
       questionPrompt: 'What is the airspeed velocity of an unladen swallow?',
       possibleAnswers: [
-        'Depends. Are you refering to the African unladen swallow?',
+        'Depends. Are you referring to the African unladen swallow?',
         'Or the European unladen swallow?'
       ]
     })
