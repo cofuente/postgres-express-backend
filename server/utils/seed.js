@@ -210,7 +210,7 @@ async function seed() {
       }
     }),
   ])
-  console.log(`sorted ${orderedForms.length} forms to have sorted questions`)
+  console.log(`sorted all forms to have ordered questions`)
   console.log(`seeded successfully`)
 }
 
