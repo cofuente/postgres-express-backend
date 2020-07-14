@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../db/_db')
-const {Form, Question, Answer, Submission} = require('../db/models')
+const {Form, Question, Answer, Submission, QuestionForm} = require('../db/models')
 
 async function seed() {
   await db.sync({force: true})
@@ -31,16 +31,23 @@ async function seed() {
 
   const forms = await Promise.all([
     Form.create({
+        formUUID: 'b52e2f5f-763b-4e63-9124-0e707ea73f61',
         title: 'example form title 1',
         stateCode: 'NY',
         questions: [
           {
             questionType: 'input',
             questionPrompt: 'What is your first name?',
+            questionsforms: {
+              order: 1
+            }
           },
           {
             questionType: 'paragraph',
             questionPrompt: 'What is your address?',
+            questionsforms: {
+              order: 2
+            }
           }
         ]
       }, { 
@@ -66,6 +73,7 @@ async function seed() {
     ])
   ),
     Form.create({
+        formUUID: '63a60c48-adda-468c-b6cc-3449d68f617d',
         title: 'example form title 2',
         stateCode: 'CA',
         questions: [
@@ -77,8 +85,11 @@ async function seed() {
               'female-ish',
               'NB',
               'HAHAHAHA!'
-            ]
-          }
+            ],
+            questionsforms: {
+              order: 1
+            }
+          }, 
         ]
       }, {
         include: [ Question ]
@@ -91,6 +102,44 @@ async function seed() {
     ),
   ])
 
+  const orderedForms = await Promise.all([
+    QuestionForm.update({order: 1 }, {
+      where: {
+        questionUUID: '73c7ed89-8c6f-4e6e-8d19-ca0250b37cb0',
+        formUUID: 'e2ef8eca-d2cf-4e12-816e-8a970fc698e8'
+      }
+    }),
+    QuestionForm.update({order: 2 }, {
+      where: {
+        questionUUID: '1ac4b921-0568-4fcc-af89-bf46b64f4068',
+        formUUID: 'e2ef8eca-d2cf-4e12-816e-8a970fc698e8'
+      }
+    }),
+    QuestionForm.update({order: 3 }, {
+      where: {
+        questionUUID: '1ac4b921-0568-4fcc-af89-bf46b64f4068',
+        formUUID: 'b52e2f5f-763b-4e63-9124-0e707ea73f61'
+      }
+    }),
+    QuestionForm.update({order: 4 }, {
+      where: {
+        questionUUID: '73c7ed89-8c6f-4e6e-8d19-ca0250b37cb0',
+        formUUID: 'b52e2f5f-763b-4e63-9124-0e707ea73f61'
+      }
+    }),
+    QuestionForm.update({order: 2 }, {
+      where: {
+        questionUUID: '1ac4b921-0568-4fcc-af89-bf46b64f4068',
+        formUUID: '63a60c48-adda-468c-b6cc-3449d68f617d'
+      }
+    }),
+    QuestionForm.update({order: 3 }, {
+      where: {
+        questionUUID: '73c7ed89-8c6f-4e6e-8d19-ca0250b37cb0',
+        formUUID: '63a60c48-adda-468c-b6cc-3449d68f617d'
+      }
+    }),
+  ])
   const submissions = await Promise.all([
     Form.findOne({
         where: {
