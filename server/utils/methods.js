@@ -16,12 +16,6 @@ async function methodTest() {
     const questionsBefore = await Form.getQuestions('e2ef8eca-d2cf-4e12-816e-8a970fc698e8')
     console.log('before: ', questionsBefore)
 
-    const formToUpdate = await Form.findByPk('e2ef8eca-d2cf-4e12-816e-8a970fc698e8')
-    // /* ------ the method I'm actually testing ------*/
-    await formToUpdate.assimilateForm('7c21fb1c-88cc-43ea-be7b-5a621955a3ea')
-
-    const questionsAfter = await Form.getQuestions('e2ef8eca-d2cf-4e12-816e-8a970fc698e8')
-    console.log('after: ', questionsAfter)
   } catch (error) {
     console.log('eeeeeeeeee:', error)
   }
