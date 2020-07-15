@@ -3,3 +3,5 @@ node_modules
 
 # local dev notes
 NOTES.md 
+
+*.DS_Store
