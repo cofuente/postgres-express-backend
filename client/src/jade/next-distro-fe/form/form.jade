@@ -1,18 +1,513 @@
-// One "tab" for each step in the form (main form tab):
-- var api = data
+// Circles which indicates the steps of the form:
+div(style='text-align:center;margin-top:40px;')
+  span.step
+  span.step
+  span.step
+  span.step
+  span.step
+// One "tab" for each step in the form:
 .tab
-  each field in api
-    if field.questionType === "input"
-      include partials/_input
-    if field.questionType === "date"
-      include partials/_date
-    if field.questionType === "checkbox"
-      include partials/_checkbox
-    if field.questionType === "dropdown" || field.questionType === "multiplechoice"
-      include partials/_select
-    if field.questionType === "radio"
-      include partials/_radio
-    if field.questionType === "heading"
-      include partials/_heading
-    if field.questionType === "paragraph"
-      include partials/_paragraph
+  p
+    | NEXT Distro is an online and mail-based harm reduction program. We provide services to individuals who inject drugs that can not or will not access an in-person syringe exchange.
+  p
+    | As part of our work, NEXT has developed a mail-based supply distribution program. We mail you the supplies you would receive if you walked into a traditional syringe exchange office.
+  p
+    | NEXT Distro is a group of trained harm reductionists and activists. Don't hesitate to reach out if you have questions at 
+    a(href='mailto:info@nextdistro.org') info@nextdistro.org
+  p
+    | NEXT provides supplies to individuals who use drugs yet cannot access resources in their own community. To see if your county has a syringe exchange program, please take a look at 
+    u
+      a(href='https://www.naloxoneforall.org/sep', target='_blank') our directory
+    | . To learn more about NEXT, 
+    u
+      a(href='https://nextdistro.org/history', target='_blank') visit our About page
+    | .
+  p
+    | If you choose to enroll with NEXT Distro, the process will take you approximately 10-15 minutes.
+  .sqs-block.button-block.sqs-block-button.custom-button-row
+    .sqs-block-content
+      button#nextBtn.sqs-block-button-element--small.sqs-block-button-element.custom-button-pad(type='button', onclick='nextPrev(1)') Start
+      //
+        <button class="sqs-block-button-element--small sqs-block-button-element custom-button-pad" onclick="window.location.href='/pwud-people-who-use-drugs'">Syringe Access</button>
+        <button class="sqs-block-button-element--small sqs-block-button-element custom-button-pad" onclick="window.location.href='/how-does-it-work'">General Info</button>
+.tab
+  h3.fs-subtitle How our service works:
+  ol
+    li
+      | Complete our encrypted enrollment form. Use a complete, correct mailing address and make sure to include contact information if we have questions.
+    li NEXT staff will decrypt your enrollment form using a secure computer.
+    li
+      | NEXT staff will contact you within 48 hours with any questions.  We will provide a supply list so you can order harm reduction supplies.
+    li
+      | Next staff will discretely package your supplies using the name and address provided in your enrollment. In almost all cases, supplies will be shipped via USPS.
+  p
+    | Shipping times vary depending on your location. NEXT can print postage using a postage meter or can send your package with USPS tracking number. Please consider your privacy and safety when choosing your preference.
+  .sqs-block.button-block.sqs-block-button.custom-button-row
+    .sqs-block-content
+      button#prevBtn.sqs-block-button-element--small.sqs-block-button-element.custom-button-pad(type='button', onclick='nextPrev(-1)') Back
+      button#nextBtn.sqs-block-button-element--small.sqs-block-button-element.custom-button-pad(type='button', onclick='nextPrev(1)') Continue
+.tab
+  h2 Fine Print
+  h3 Security and Privacy
+  p
+    | NEXT's enrollment form uses a PGP encryption system to ensure your personal information is not accessible to anyone other than the individual NEXT staff member mailing your package. This means, the information you write in the enrollment shows up in our form as long alphanumeric strings that can not be read by anyone without a specific code. We take your privacy seriously and our team has built a secure system that prioritizes security.
+  p
+  h3 Enrollment
+  p
+    | Aggregate information from enrollments may be used in program narratives, reporting, research, and for any other purpose. No identifying information that ties program participants to information they submit on the enrollment form will ever be accessible to a third party.
+  h3 Statement of Identity
+  input#check1.checkValid(type='checkbox', name='checkValid', required='')
+  label(for='check1')
+    | I am enrolling in NEXT Distro because I, myself, need safer injection supplies and harm reduction materials.
+  br
+  br
+  input#check2.checkValid(type='checkbox', name='checkValid', required='')
+  label(for='check2')
+    | I understand that the NEXT Distro enrollment system uses PGP encryption and will never pair my name or address with any information I share through the enrollment process.
+  br
+  br
+  input#check3.checkValid(type='checkbox', name='checkValid', required='')
+  label(for='check3')
+    | I am enrolling in NEXT Distro using my correct full address including apartment or lot number.
+  br
+  br
+  input#check4.checkValid(type='checkbox', name='checkValid', required='')
+  label(for='check4')
+    | I understand that if I do not receive a response from NEXT Distro within 48 hours I should doublecheck to ensure a response did not go in spam, message request, or the equivalant of my communication method of choice. If I am unsure, I will contact NEXT Distro.
+  br
+  br
+  input#check5.checkValid(type='checkbox', name='checkValid', required='')
+  label(for='check5')
+    | I understand that I can communicate with NEXT staff if I have specific supply or privacy needs, no packages will be automatically sent to me- or sent without my expressed request.  This means that if a staff member reaches out for clarification or a question on your order, NEXT will not mail supplies until we receive your response.
+  br
+  //
+    <div class="form-item field text">
+    <label class="title required">Enter Your Initials</label>
+    <input
+    id="terms"
+    type="text"
+    class="field-element text"
+    placeholder="Your initials"/>
+    <label class="title required">Today's Date</label>
+    <input
+    id="terms"
+    type="text"
+    class="field-element text"/>
+    </div>
+  .sqs-block.button-block.sqs-block-button.custom-button-row
+    .sqs-block-content
+      input#prevBtn.sqs-block-button-element--small.sqs-block-button-element.custom-button-pad(type='button', value='Back', onclick='nextPrev(-1)')
+      input.sqs-block-button-element--small.sqs-block-button-element.custom-button-pad(type='button', value='Not Interested', onclick="window.location.href='/donate'")
+      input#nextBtn.sqs-block-button-element--small.sqs-block-button-element.custom-button-pad(type='button', value='Enroll', onclick='return cbxValid()')
+// One "tab" for each step in the form (main form tab):
+.tab
+  .form-item.field.text
+    label.title.required Please tell us how you learned about NEXT. Be specific.
+    input.field-element.text(name='Please tell us how you learned about NEXT. Be specific.', placeholder='Your answer', required='')
+  .form-item.field.text
+    label.title.required First Name
+    input.field-element.text(name='First Name', required='')
+  .form-item.field.text
+    label.title.required Last Name
+    input.field-element.text(name='Last Name', required='')
+  .form-item.field.text
+    label.title.required Address (this is the location where you want supplies sent in your name)
+    input.field-element.text(name='Address', required='')
+  .form-item.field.text
+    label.title Address (Apartment or Unit No.) 
+    input.field-element.text(name='Address 2')
+  .form-item.field.text
+    label.title City 
+    input.field-element.text(name='City', required='')
+  .form-item.field.text
+    label.title.required State
+    .option
+      select(name='State', required='')
+        option(value='') --Select State--
+        option(value='AL') Alabama
+        option(value='AK') Alaska
+        option(value='AZ') Arizona
+        option(value='AR') Arkansas
+        option(value='CA') California
+        option(value='CO') Colorado
+        option(value='CT') Connecticut
+        option(value='DE') Delaware
+        option(value='FL') Florida
+        option(value='GA') Georgia
+        option(value='HI') Hawaii
+        option(value='ID') Idaho
+        option(value='IL') Illinois
+        option(value='IN') Indiana
+        option(value='IA') Iowa
+        option(value='KS') Kansas
+        option(value='KY') Kentucky
+        option(value='LA') Louisiana
+        option(value='ME') Maine
+        option(value='MD') Maryland
+        option(value='MA') Massachusetts
+        option(value='MI') Michigan
+        option(value='MN') Minnesota
+        option(value='MS') Mississippi
+        option(value='MO') Missouri
+        option(value='MT') Montana
+        option(value='NE') Nebraska
+        option(value='NV') Nevada
+        option(value='NH') New Hampshire
+        option(value='NJ') New Jersey
+        option(value='NM') New Mexico
+        option(value='NY') New York
+        option(value='NC') North Carolina
+        option(value='ND') North Dakota
+        option(value='OH') Ohio
+        option(value='OK') Oklahoma
+        option(value='OR') Oregon
+        option(value='PA') Pennsylvania
+        option(value='PR') Puerto Rico
+        option(value='RI') Rhode Island
+        option(value='SC') South Carolina
+        option(value='SD') South Dakota
+        option(value='TN') Tennessee
+        option(value='TX') Texas
+        option(value='UT') Utah
+        option(value='VT') Vermont
+        option(value='VA') Virginia
+        option(value='WA') Washington
+        option(value='WV') West Virginia
+        option(value='WI') Wisconsin
+        option(value='WY') Wyoming
+  .form-item.field.text
+    label.title.required Zip Code
+    input.field-element.text(type='number', name='Zip', placeholder='', required='', pattern='^[0-9]{5}(?:-[0-9]{4})?$', title="Please type a 5 or 9 digit zip code, '12345' or '12345-1234'")
+  .form-item.field.text
+    label.title.required Date of Birth
+    input.field-element.text(name='Date of Birth', type='date')
+  .form-item.field.select
+    label.title.required Gender
+    select#gender(name='Gender', required='')
+      option(value='') -- Select an Option --
+      option(value='Woman') Woman
+      option(value='Man') Man
+      option(value='Nonbinary') Nonbinary
+      option(value='Other') Other
+      option(value='Prefer not to say') Prefer not to say
+  .form-item.field.select
+    label.title.required Would you describe yourself as transgender?
+    select#Transgender(name='Transgender', required='')
+      option(value='') --Select--
+      option(value='Yes') Yes
+      option(value='No') No
+      option(value='Other') Other
+      option(value='Prefer not to say') Prefer not to say
+  .form-item.field.text.required
+    label.title
+      | How would you describe your sexual orientation
+      | (some answers may include gay, straight, bisexual, queer, lesbian, etc)
+    input.field-element(name='Sexual Orientation', placeholder='Your answer', required='')
+  .form-item.field.select.required
+    label.title.required I am a US veteran or in active duty
+    select#military(name='Military Status', required='')
+      option(value='') --Select--
+      option(value='Yes') Yes
+      option(value='No') No
+  .form-item.field.select
+    label.title.required I am pregnant or may be pregnant:
+    select#pregnancy(name='Preganancy')
+      option(value='') --Select--
+      option(value='Yes') Yes
+      option(value='No') No
+      option(value='Other') I'm not sure
+      option(value='N/A') N/A
+  .form-item.field.select.required
+    label.title.required I am a parent, or parenting
+    select#parent(name='Parental Status', required='')
+      option(value='') --Select--
+      option(value='Yes') Yes
+      option(value='No') No
+  .form-item.field.checkbox
+    label.title
+      | My ethnicity could be described as:
+    fieldset#Ethnicity(name='My ethnicity could be described as')
+      .option
+        label
+          input(type='checkbox', name='Ethnicity - Asian', value='Asian')
+          |                     Asian
+      .option
+        label
+          input(type='checkbox', name='Ethnicity - Black/African American', value='Black/African American')
+          |                     Black/African American
+      .option
+        label
+          input(type='checkbox', name='Ethnicity - Hispanic/Latinx', value='Hispanic/Latinx')
+          |                     Hispanic/Latinx
+      .option
+        label
+          input(type='checkbox', name='Ethnicity - Black/African American', value='Black/African American')
+          |                     Black/African American
+      .option
+        label
+          input(type='checkbox', name='Native American or Alaskan Native', value='Ethnicity - Native American or Alaskan Native')
+          |                     Native American or Alaskan Native
+      .option
+        label
+          input(type='checkbox', name='Native Hawaiian or Pacific Islander', value='Ethnicity - Native Hawaiian or Pacific Islander')
+          |                     Native Hawaiian or Pacific Islander
+      .option
+        label
+          input(type='checkbox', name='Ethnicity - White/Caucasian', value='White/Caucasian')
+          |                     White/Caucasian
+      .option
+        label
+          input(type='checkbox', name='Ethnicity - Other', value='Other')
+          |                     Other
+      .option
+        label
+          input(type='checkbox', name='Prefer not to answer', value='Prefer not to answer')
+          |                     Prefer not to answer
+  .form-item.field.text
+    label.title
+      | Is there anything else you would like us to know to describe your identity?
+    input.field-element(name='Identity - Other Info', placeholder='Your answer')
+  .form-item.field.select.required
+    label.title.required What is your preferred language?
+    select#language(name='Preferred Language', required='')
+      option(value='') --Select--
+      option(value='English') English
+      option(value='Spanish') Spanish
+      option(value='Russian') Russian
+      option(value='Chinese (Cantonese or Mandarin)') Chinese (Cantonese or Mandarin)
+      option(value='Other') Other
+  h3 As a reminder, this form is encrypted and will not be accessed by a third party.
+  .form-item.field.select.required
+    label.title.required Do you have health insurance?
+    select#insurance(name='Health Insurance')
+      option(value='') --Select--
+      option(value='Yes') Yes
+      option(value='No') No
+      option(value='Not sure') I'm not sure
+  .form-item.field.select.required
+    label.title.required
+      | Do you currently have a Primary Care Provider?
+      | That is, a doctor, nurse or physician assistant you see when it is not an emergency.
+    select#primary_care_provider(name='Primary Care Provider', required='')
+      option(value='') --Select--
+      option(value='Yes') Yes
+      option(value='No') No
+      option(value='Not sure') I'm not sure
+  .form-item.field.text
+    label.title
+      | If you have been hospitalized within the past six months, how many times?
+    input.field-element(name='Hospitalized', placeholder='Your answer')
+  .form-item.field.text
+    label.title
+      | Have you had issues related to abscesses, cellulitis, endocarditis? Please explain.
+    input.field-element(name='Have you had issues related to abscesses, cellulitis, endocarditis?', placeholder='Your answer')
+  .form-item.field.checkbox
+    label.title
+      | Have you been diagnosed with any of the following (check all that apply)
+    fieldset(id='Medical Diagnosis', name='Have you been diagnosed with any of the following (check all that apply)')
+      .option
+        label
+          input(type='checkbox', name='Diagnosed - HIV/AIDS', value='HIV/AIDS')
+          |                     HIV/AIDS
+      .option
+        label
+          input(type='checkbox', name='Diagnosed - Hepatitis C', value='Hepatitis C')
+          |                     Hepatitis C
+      .option
+        label
+          input(type='checkbox', name='Diagnosed - Diabetes', value='Diabetes')
+          |                     Diabetes
+      .option
+        label
+          input(type='checkbox', name='Diagnosed - Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)', value='Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)')
+          |                     Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)
+      .option
+        label
+          input(type='checkbox', name='Diagnosed - Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)', value='Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)')
+          |                     Cardiovascular Disease (Hypertension, Advanced Coronary Artery Disease, Peripheral Vascular Disease, etc)
+      .option
+        label
+          input(type='checkbox', name='Diagnosed - Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)', value='Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)')
+          |                     Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)
+      .option
+        label
+          input(type='checkbox', name='Diagnosed - Other', value='Other')
+          |  Other 
+          input.field-element.text(name='Other', value='')
+  .form-item.field.select.required
+    label.title.required What is your housing status?
+    select#housing_status(name='Housing Status')
+      option(value='') --Select--
+      option(value='I rent or own my own home/apartment- Stable Situation') I rent or own my own home/apartment- Stable Situation
+      option(value='I rent or own my own home/apartment- Unstable Situation') I rent or own my own home/apartment- Unstable Situation
+      option(value='I rent or own my own home/apartment- Unstable Situation') I live with family or friends - Stable Situation
+      option(value='I live with family or friends- Unstable Situation') I live with family or friends- Unstable Situation
+      option(value='Homeless in the Shelter System') Homeless in the Shelter System
+      option(value='Homeless not in the Shelter System') Homeless not in the Shelter System
+      option(value='Other') My housing status is not described here
+  .form-item.field.select.required
+    label.title.required Have you been arrested or incarcerated in the past year?
+    select#arrested_incarcerated(name='Arrested or Incarcerated in Past Year', required='')
+      option(value='') --Select--
+      option(value='No') No
+      option(value='Yes, on probation') Yes, on probation
+      option(value='Yes, on parole') Yes, on parole
+      option(value='Yes, on probation and parole') Yes, on probation and parole
+      option(value='Yes, awaiting trial/judge') Yes, awaiting trial/judge
+      option(value='Yes, outstanding warrant') Yes, outstanding warrant
+      option(value='Yes, case pending') Yes, case pending
+      option(value='Yes, none of the above') Yes, none of the above
+  h3 The next few questions are about drugs and drug use
+  p As a reminder this form is secure, your information will be kept confidential.
+  .form-item.field.text
+    label.title.required How old were you when you started injecting drugs?
+    input.field-element(name='Age Started Injecting', placeholder='Your answer')
+  .form-item.field.select.required
+    label.title.required About how many times per day do you inject?
+    select(id='Injection frequency', name='Injection frequency', required='')
+      option(value='') --Select--
+      option(value='Less than once per day') Less than once per day
+      option(value='Once per day') Once per day
+      option(value='2 - 5 Times per day') 2 - 5 Times per day
+      option(value='6 - 10 Times per day') 6 - 10 Times per day
+      option(value='11+ Times per day') 11+ Times per day
+  .form-item.field.text
+    label.title.required How do you currently dispose of your used syringes? Please be specific. 
+    input.field-element.text(name='Syringe Disposal')
+  .form-item.field.checkbox
+    label.title.required What drugs have you used in the past 30 days?
+    fieldset#drug_use(name='What drugs have you used in the past 30 days?', required='')
+      .option
+        label
+          input(type='checkbox', name='30 Day Drug Use - Heroin', value='Heroin')
+          |                       Heroin
+      .option
+        label
+          input(type='checkbox', name='30 Day Drug Use - Cocaine', value='Cocaine')
+          |                       Cocaine
+      .option
+        label
+          input(type='checkbox', name='30 Day Drug Use - Methamphetamine', value='Methamphetamine')
+          |                       Methamphetamine
+      .option
+        label
+          input(type='checkbox', name='30 Day Drug Use - Crack-cocaine', value='Crack-cocaine')
+          |                       Crack-cocaine
+      .option
+        label
+          input(type='checkbox', name='30 Day Drug Use - Marijuana', value='Marijuana')
+          |                       Marijuana
+      .option
+        label
+          input(type='checkbox', name='30 Day Drug Use - Alcohol', value='Alcohol')
+          |                       Alcohol
+      .option
+        label
+          input(type='checkbox', name='30 Day Drug Use - Methadone prescribed', value='Methadone prescribed')
+          |                       Methadone (prescribed/from a doctor)
+      .option
+        label
+          input(type='checkbox', name='30 Day Drug Use - Methadone not prescribed', value='Methadone not prescribed')
+          |                       Methadone (not prescribed)
+      .option
+        label
+          input(type='checkbox', name='30 Day Drug Use - Buprenorphine prescribed', value='Buprenorphine prescribed')
+          |                       Buprenorphine (prescribed/from a doctor)
+      .option
+        label
+          input(type='checkbox', name='30 Day Drug Use - Buprenorphine not prescribed', value='Buprenorphine not prescribed')
+          |                       Buprenorphine (not prescribed)
+      .option
+        label
+          input(type='checkbox', name='30 Day Drug Use - Other opiates such as Oxycontin, Vicodin, Percocet', value='Other opiates such as Oxycontin, Vicodin, Percocet')
+          |                       Other opiates such as Oxycontin, Vicodin, Percocet, etc.
+      .option
+        label
+          input(type='checkbox', name='30 Day Drug Use - Benzos such as Valium, Ativan, Xanax', value='Benzos such as Valium, Ativan, Xanax')
+          |                       Benzos such as Valium, Ativan, Xanax
+      .option
+        label
+          input(type='checkbox', name='30 Day Drug Use - Synthetic marijuana/ K2', value='Synthetic marijuana/ K2')
+          |                       Synthetic marijuana/ K2
+      .option
+        label
+          input(type='checkbox', name='30 Day Drug Use - Other', value='Other')
+          |  Other 
+          input.field-element.text(name='Other', value='')
+  .form-item.field.radio
+    label.title.required
+      | Do you inject pills?
+    .option
+      label
+        input(type='radio', name='Do you inject pills?', value='no', required='')
+        |  No
+    .option
+      label
+        input(type='radio', name='Do you inject pills?', value='yes often')
+        |  Yes, often
+    .option
+      label
+        input(type='radio', name='Do you inject pills?', value='yes rarely')
+        |  Yes, rarely
+  h3 The following questions are about opioid overdose
+  p
+    | One of the most important things we do is look for ways to reach more people with injection supplies and naloxone-- we are looking to partner with people in the community who can help distribute naloxone to keep others safe.
+  .form-item.field.select
+    label.title.required Do you currently have naloxone (or Narcan)?
+    select#currently_has_naloxone(name='Do you currently have naloxone (or Narcan)?', required='')
+      option(value='') --Select--
+      option(value='Yes') Yes
+      option(value='No') No
+      option(value='Unsure') I don't know / I don't remember
+  .form-item.field.select
+    label.title.required Have you overdosed in the past year?
+    select#overdose_self(name='Have you overdosed in the past year?', required='')
+      option(value='') --Select--
+      option(value='Yes') Yes
+      option(value='No') No
+      option(value='Unsure') I don't know / I don't remember
+  .form-item.field.select
+    label.title.required Have you witnessed someone overdose in the past year?
+    select#overdose_witness(name='Have you witnessed someone overdose in the past year?', required='')
+      option(value='') --Select--
+      option(value='Yes') Yes
+      option(value='No') No
+      option(value='Unsure') I don't know / I don't remember
+  .form-item.field.text
+    label.title.required
+      | Where do you currently obtain injection related supplies?
+    input.field-element(name='Where do you currently obtain injection related supplies?', placeholder='Your answer', required='')
+  .form-item.field.text
+    label.title.required
+      | Can you explain why you have difficulty accessing syringes in your own community? Please be as specific as possible.”
+    input.field-element(name='Can you explain why you have difficulty accessing syringes in your own community? Please be as specific as possible.', placeholder='Your answer', required='')
+  .form-item.field.text
+    label.title
+      | Is there anything else we should know about you, your history, or situation?
+    input.field-element(name='Other Information', placeholder='Your answer')
+  .form-item.field.text
+    label.title.required
+      | In addition to getting supplies for yourself, about how many people do you expect will receive supplies that we send to you for their own use?
+    select#supplies_to_others(name='How many other people do you plan to get supplies from NEXT for?', required='')
+      option(value='') --Choose #--
+      option(value='Just myself - no other people')  Just myself - no other people
+      option(value='1 - 10 people')  1 - 10 people
+      option(value='20 - 30 people')  20 - 30 people
+      option(value='30 - 40 people')  30 - 40 people
+      option(value='40 - 50 people')  40 - 50 people
+      option(value='More than 50 people')  More than 50 people
+  .form-item.field.text
+    label.title.required
+      | NEXT usually uses USPS, and we can send your package one of two ways. Please take a minute to think about which option works best for you:
+    select#tracked_package(name='Shipping Preference', required='')
+      option(value='') --Choose an option--
+      option(value='Tracked')  NEXT will send me a tracking number so I will know when to expect my package
+      option(value='Untracked')
+        | NEXT should use a postage meter to get postage for my package. This means my package will not be tracked by the postal system.
+  .form-item.field.text
+    label.title.required
+      | Please provide a user handle, we will use this handle to communicate with you. Ensure the handle is one you'll remember. Please do not use any spaces. Examples are: Panda223, JoeShmo, Liz_Star, 777Ryder
+    input.field-element(name='Handle', placeholder='Enter handle', required='', pattern='^[aA-zZ0-9_-]{3,25}$', title='Use ONLY numbers, letters and _underlines_. Must be at least three characters.')
+  p
+    | Thank you for filling out this enrollment form. Text the handle you created above to 917-828-0293, email it to jamie@nextdistro.org, or message /u/nextdistro on Reddit. We'll respond about getting you supplies within 48 hours.
+  input.button.sqs-system-button.sqs-editable-button(type='submit', value='Submit')
