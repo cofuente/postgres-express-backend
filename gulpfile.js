@@ -20,11 +20,11 @@ var uglify = require('gulp-uglify');
 /*
  Directory variables
  */
-var lessSrcDir = './src/less/';
-var jadeSrcDir = './src/jade/';
-var assetsDir = './public/';
+var lessSrcDir = './client/src/less/';
+var jadeSrcDir = './client/src/jade/';
+var assetsDir = './client/public/';
 var compiledStylesDir = assetsDir + 'stylesheets/';
-var libsDir = './libs/';
+var libsDir = './client/libs/';
 
 /*
  Compiling less, using sourcemaps
@@ -82,7 +82,7 @@ gulp.task('jade', function () {
                 wrap_line_length: 0
             }
         }))
-        .pipe(gulp.dest('./public/'));
+        .pipe(gulp.dest('./client/public/'));
 });
 
 /*
@@ -116,10 +116,10 @@ gulp.task('build:scripts', function () {
  Optimising the images
  */
 gulp.task('imagemin', function () {
-    return gulp.src('./public/images/**/*')
+    return gulp.src('./client/public/images/**/*')
         .pipe(imagemin({
             progressive: true,
             use: [pngquant()]
         }))
-        .pipe(gulp.dest('./public/images'));
+        .pipe(gulp.dest('./client/public/images'));
 });
