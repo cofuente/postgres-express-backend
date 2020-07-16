@@ -1,6 +1,5 @@
 const router = require('express').Router()
-
-const { Form } = require('../db/models')
+const { Form, Question } = require('../db/models')
 
 
 // get all forms
@@ -15,7 +14,7 @@ router.get('', async (req, res, next) => {
   }
 })
 
-// make a new form, requires state code
+// make a new form, requires state code and title
 router.post('/', async (req, res, next) => {
   try {
     const newForm = await Form.create(req.body)
@@ -27,10 +26,16 @@ router.post('/', async (req, res, next) => {
 })
 
 // get a specific form
-// TODO: alter this to include a form's questions
 router.get('/:formUUID', async (req, res, next) => {
   try {
-    let requestedForm = await Form.findByPk(req.params.formUUID)
+    const { formUUID } = req.params
+    let requestedForm = await Form.findOne({
+      where: { formUUID },
+      include: {
+        model: Question,
+        as: 'questions'
+      }
+    })
     if (requestedForm) res.status(200).json(requestedForm) 
     else res.status(404).send('form not found')
   } catch (error) {
@@ -38,9 +43,8 @@ router.get('/:formUUID', async (req, res, next) => {
   }
 })
 
-// add a question to a form
-// TODO: add error handling for non-existent questions
-router.put('/:formUUID', async (req, res, next) => {
+// add a question or questions to a form
+router.put('/a/:formUUID', async (req, res, next) => {
   try {
     const formToUpdate = await Form.findByPk(req.params.formUUID)
     formToUpdate.addQuestions(req.body)
@@ -51,12 +55,22 @@ router.put('/:formUUID', async (req, res, next) => {
 })
 
 
+// remove a question or questions from a form
+router.put('/r/:formUUID', async (req, res, next) => {
+  try {
+    const formToUpdate = await Form.findByPk(req.params.formUUID)
+    formToUpdate.removeQuestions(req.body)
+    res.status(202).json(formToUpdate.formUUID)
+  } catch (error) {
+    next(error)
+  }
+})
+
 // delete a form
-// TODO: make sure it does not delete the q's as well
 router.delete('/:formUUID', async (req, res, next) => {
   try {
     await Form.destroy({ where: { formUUID: req.params.formUUID } })
-    res.status(204).send('deletion complete')
+    res.status(200).send('deletion complete')
   } catch (error) {
     next(error)
   }

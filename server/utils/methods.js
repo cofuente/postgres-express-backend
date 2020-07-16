@@ -11,22 +11,18 @@ const {
 
 async function methodTest() {
   await db.sync()
-  console.log('db synced!')
+  console.log('DB Synced!')
+  try {
+    const questionsBefore = await Form.getQuestions('e2ef8eca-d2cf-4e12-816e-8a970fc698e8')
+    console.log('before: ', questionsBefore)
 
-  const result = await Form.findOne({
-    where: { stateCode: 'CA' },
-    include: {
-      model: Question,
-      as: 'questions'
-    }
-  })
-
-  console.log(result)
-
+  } catch (error) {
+    console.log('eeeeeeeeee:', error)
+  }
 }
 
 async function runMethodTest() {
-  console.log('attempting methods...')
+  console.log('attempting methodTest...')
   try {
     await methodTest()
   } catch (err) {

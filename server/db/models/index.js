@@ -4,14 +4,15 @@ const Question = require('./question')
 const Answer = require('./answer')
 const Form = require('./form')
 const Submission = require('./submission')
+const QuestionForm = require('./questionform')
 
 
 Question.belongsToMany(Form, {
-  through: 'questionsforms',
+  through: QuestionForm,
   foreignKey: 'questionUUID'
 })
 Form.belongsToMany(Question, {
-  through: 'questionsforms',
+  through: QuestionForm,
   foreignKey: 'formUUID'
 })
 
@@ -27,4 +28,5 @@ module.exports = {
   Answer,
   Form,
   Submission,
+  QuestionForm
 }
