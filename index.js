@@ -12,34 +12,27 @@ frontend.use(cors())
 frontend.use(express.json());
 frontend.use(express.urlencoded({ extended: true }))
 
-/*
-frontend.get('/', function(req,res){
-  res.status(200)
-    .json(data);
-});
-*/
-
 frontend.post('/', function(req,res){
   var data = req.body;
   console.log(data);
 });
 
-// index page
-frontend.use('/', express.static('client/public'));
-
-// test form in jade
+// Serve Jade files
 frontend.use(express.static(path.join(__dirname, 'client/src/jade/next-distro-fe/')))
   .set('views', path.join(__dirname, '/client/src/jade/next-distro-fe/'))
   .set('view engine', 'jade')
-  .get('/test', function (req, res) {
+  .get('/', function (req, res) {
     api.data.then(data=>{
       console.log(data);
-      res.status(200).render('test', {data})
+      res.status(200).render('index', {data})
     }).catch(e=>{
       console.log(e)
     })
   })
   .listen(9000, () => console.log(`Listening on ${ 9000 }`))
+
+// Serve static files
+frontend.use('/static', express.static('client/public/'));
   
 const init = async () => {
   if (require.main === module){
