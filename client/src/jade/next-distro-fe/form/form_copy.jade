@@ -1,0 +1,110 @@
+// Circles which indicates the steps of the form:
+div(style='text-align:center;margin-top:40px;')
+  span.step
+  span.step
+  span.step
+  span.step
+  span.step
+// One "tab" for each step in the form:
+.tab
+  p
+    | NEXT Distro is an online and mail-based harm reduction program. We provide services to individuals who inject drugs that can not or will not access an in-person syringe exchange.
+  p
+    | As part of our work, NEXT has developed a mail-based supply distribution program. We mail you the supplies you would receive if you walked into a traditional syringe exchange office.
+  p
+    | NEXT Distro is a group of trained harm reductionists and activists. Don't hesitate to reach out if you have questions at 
+    a(href='mailto:info@nextdistro.org') info@nextdistro.org
+  p
+    | NEXT provides supplies to individuals who use drugs yet cannot access resources in their own community. To see if your county has a syringe exchange program, please take a look at 
+    u
+      a(href='https://www.naloxoneforall.org/sep', target='_blank') our directory
+    | . To learn more about NEXT, 
+    u
+      a(href='https://nextdistro.org/history', target='_blank') visit our About page
+    | .
+  p
+    | If you choose to enroll with NEXT Distro, the process will take you approximately 10-15 minutes.
+  .sqs-block.button-block.sqs-block-button.custom-button-row
+    .sqs-block-content
+      button#nextBtn.sqs-block-button-element--small.sqs-block-button-element.custom-button-pad(type='button', onclick='nextPrev(1)') Start
+      //
+        <button class="sqs-block-button-element--small sqs-block-button-element custom-button-pad" onclick="window.location.href='/pwud-people-who-use-drugs'">Syringe Access</button>
+        <button class="sqs-block-button-element--small sqs-block-button-element custom-button-pad" onclick="window.location.href='/how-does-it-work'">General Info</button>
+.tab
+  h3.fs-subtitle How our service works:
+  ol
+    li
+      | Complete our encrypted enrollment form. Use a complete, correct mailing address and make sure to include contact information if we have questions.
+    li NEXT staff will decrypt your enrollment form using a secure computer.
+    li
+      | NEXT staff will contact you within 48 hours with any questions.  We will provide a supply list so you can order harm reduction supplies.
+    li
+      | Next staff will discretely package your supplies using the name and address provided in your enrollment. In almost all cases, supplies will be shipped via USPS.
+  p
+    | Shipping times vary depending on your location. NEXT can print postage using a postage meter or can send your package with USPS tracking number. Please consider your privacy and safety when choosing your preference.
+  .sqs-block.button-block.sqs-block-button.custom-button-row
+    .sqs-block-content
+      button#prevBtn.sqs-block-button-element--small.sqs-block-button-element.custom-button-pad(type='button', onclick='nextPrev(-1)') Back
+      button#nextBtn.sqs-block-button-element--small.sqs-block-button-element.custom-button-pad(type='button', onclick='nextPrev(1)') Continue
+.tab
+  h2 Fine Print
+  h3 Security and Privacy
+  p
+    | NEXT's enrollment form uses a PGP encryption system to ensure your personal information is not accessible to anyone other than the individual NEXT staff member mailing your package. This means, the information you write in the enrollment shows up in our form as long alphanumeric strings that can not be read by anyone without a specific code. We take your privacy seriously and our team has built a secure system that prioritizes security.
+  p
+  h3 Enrollment
+  p
+    | Aggregate information from enrollments may be used in program narratives, reporting, research, and for any other purpose. No identifying information that ties program participants to information they submit on the enrollment form will ever be accessible to a third party.
+  h3 Statement of Identity
+  input#check1.checkValid(type='checkbox', name='checkValid', required='')
+  label(for='check1')
+    | I am enrolling in NEXT Distro because I, myself, need safer injection supplies and harm reduction materials.
+  br
+  br
+  input#check2.checkValid(type='checkbox', name='checkValid', required='')
+  label(for='check2')
+    | I understand that the NEXT Distro enrollment system uses PGP encryption and will never pair my name or address with any information I share through the enrollment process.
+  br
+  br
+  input#check3.checkValid(type='checkbox', name='checkValid', required='')
+  label(for='check3')
+    | I am enrolling in NEXT Distro using my correct full address including apartment or lot number.
+  br
+  br
+  input#check4.checkValid(type='checkbox', name='checkValid', required='')
+  label(for='check4')
+    | I understand that if I do not receive a response from NEXT Distro within 48 hours I should doublecheck to ensure a response did not go in spam, message request, or the equivalant of my communication method of choice. If I am unsure, I will contact NEXT Distro.
+  br
+  br
+  input#check5.checkValid(type='checkbox', name='checkValid', required='')
+  label(for='check5')
+    | I understand that I can communicate with NEXT staff if I have specific supply or privacy needs, no packages will be automatically sent to me- or sent without my expressed request.  This means that if a staff member reaches out for clarification or a question on your order, NEXT will not mail supplies until we receive your response.
+  br
+  //
+    <div class="form-item field text">
+    <label class="title required">Enter Your Initials</label>
+    <input
+    id="terms"
+    type="text"
+    class="field-element text"
+    placeholder="Your initials"/>
+    <label class="title required">Today's Date</label>
+    <input
+    id="terms"
+    type="text"
+    class="field-element text"/>
+    </div>
+  .sqs-block.button-block.sqs-block-button.custom-button-row
+    .sqs-block-content
+      input#prevBtn.sqs-block-button-element--small.sqs-block-button-element.custom-button-pad(type='button', value='Back', onclick='nextPrev(-1)')
+      input.sqs-block-button-element--small.sqs-block-button-element.custom-button-pad(type='button', value='Not Interested', onclick="window.location.href='/donate'")
+      input#nextBtn.sqs-block-button-element--small.sqs-block-button-element.custom-button-pad(type='button', value='Enroll', onclick='return cbxValid()')
+// One "tab" for each step in the form (main form tab):
+.tab
+  each field in data
+    .form-item.field.text
+      label.title.required= field.questionPrompt
+      input.field-element.text(type= field.questionType name= field.questionPrompt, placeholder='Your answer', required='')
+  p
+    | Thank you for filling out this enrollment form. Text the handle you created above to 917-828-0293, email it to jamie@nextdistro.org, or message /u/nextdistro on Reddit. We'll respond about getting you supplies within 48 hours.
+  input.button.sqs-system-button.sqs-editable-button(type='submit', value='Submit')
