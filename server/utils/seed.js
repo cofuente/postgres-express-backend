@@ -1,6 +1,7 @@
 'use strict'
 
 const db = require('../db/_db')
+const chalk = require('chalk')
 const {Form, Question, Answer, Submission, QuestionForm} = require('../db/models')
 
 async function seed() {
@@ -210,15 +211,15 @@ async function seed() {
       }
     }),
   ])
-  console.log(`sorted all forms to have ordered questions`)
-  console.log(`seeded successfully`)
+  console.log(chalk.blue('ɴᴇᴡ ') + ' → sorted all forms to have ordered questions')
+  console.log(chalk.green('seeded successfully!'))
 }
 
 // Separated the `seed` function from the `runSeed` function.
 // This way we can isolate the error handling and exit trapping.
 // The `seed` function is concerned only with modifying the database.
 async function runSeed() {
-  console.log('seeding...')
+  console.log('🌱 seeding...')
   try {
     await seed()
   } catch (err) {
