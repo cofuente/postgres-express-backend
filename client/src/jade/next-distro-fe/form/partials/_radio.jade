@@ -1,0 +1,8 @@
+// Radio Button Options
+.field
+  label.label=field.questionPrompt
+  each choice in field.possibleAnswers
+    .control
+      label.radio
+        input(type=field.questionType, name=field.questionPrompt, value=choice, required='')
+        = choice

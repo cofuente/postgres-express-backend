@@ -24,9 +24,9 @@ div(style='text-align:center;margin-top:40px;')
     | .
   p
     | If you choose to enroll with NEXT Distro, the process will take you approximately 10-15 minutes.
-  .sqs-block.button-block.sqs-block-button.custom-button-row
-    .sqs-block-content
-      button#nextBtn.sqs-block-button-element--small.sqs-block-button-element.custom-button-pad(type='button', onclick='nextPrev(1)') Start
+  .field
+    .control
+      button.button.is-primary#nextBtn(type='button', onclick='nextPrev(1)') Start
       //
         <button class="sqs-block-button-element--small sqs-block-button-element custom-button-pad" onclick="window.location.href='/pwud-people-who-use-drugs'">Syringe Access</button>
         <button class="sqs-block-button-element--small sqs-block-button-element custom-button-pad" onclick="window.location.href='/how-does-it-work'">General Info</button>
@@ -42,10 +42,10 @@ div(style='text-align:center;margin-top:40px;')
       | Next staff will discretely package your supplies using the name and address provided in your enrollment. In almost all cases, supplies will be shipped via USPS.
   p
     | Shipping times vary depending on your location. NEXT can print postage using a postage meter or can send your package with USPS tracking number. Please consider your privacy and safety when choosing your preference.
-  .sqs-block.button-block.sqs-block-button.custom-button-row
-    .sqs-block-content
-      button#prevBtn.sqs-block-button-element--small.sqs-block-button-element.custom-button-pad(type='button', onclick='nextPrev(-1)') Back
-      button#nextBtn.sqs-block-button-element--small.sqs-block-button-element.custom-button-pad(type='button', onclick='nextPrev(1)') Continue
+  .field
+    .control
+      button.button#prevBtn.is-primary(type='button', onclick='nextPrev(-1)') Back
+      button.button#nextBtn.is-primary(type='button', onclick='nextPrev(1)') Continue
 .tab
   h2 Fine Print
   h3 Security and Privacy
@@ -94,17 +94,8 @@ div(style='text-align:center;margin-top:40px;')
     type="text"
     class="field-element text"/>
     </div>
-  .sqs-block.button-block.sqs-block-button.custom-button-row
-    .sqs-block-content
-      input#prevBtn.sqs-block-button-element--small.sqs-block-button-element.custom-button-pad(type='button', value='Back', onclick='nextPrev(-1)')
-      input.sqs-block-button-element--small.sqs-block-button-element.custom-button-pad(type='button', value='Not Interested', onclick="window.location.href='/donate'")
-      input#nextBtn.sqs-block-button-element--small.sqs-block-button-element.custom-button-pad(type='button', value='Enroll', onclick='return cbxValid()')
-// One "tab" for each step in the form (main form tab):
-.tab
-  each field in data
-    .form-item.field.text
-      label.title.required= field.questionPrompt
-      input.field-element.text(type= field.questionType name= field.questionPrompt, placeholder='Your answer', required='')
-  p
-    | Thank you for filling out this enrollment form. Text the handle you created above to 917-828-0293, email it to jamie@nextdistro.org, or message /u/nextdistro on Reddit. We'll respond about getting you supplies within 48 hours.
-  input.button.sqs-system-button.sqs-editable-button(type='submit', value='Submit')
+  .field
+    .control
+      input.button.is-primary#prevBtn(type='button', value='Back', onclick='nextPrev(-1)')
+      input.button.is-primary(type='button', value='Not Interested', onclick="window.location.href='/donate'")
+      input.button.is-primary#nextBtn(type='button', value='Enroll', onclick='return cbxValid()')
