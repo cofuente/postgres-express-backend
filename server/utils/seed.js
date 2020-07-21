@@ -12,6 +12,7 @@ async function seed() {
   const questionsArr = questionData.map((x)=>Question.create(x))
   const questions = await Promise.all(questionsArr)
   console.log(`seeded ${questions.length} basic questions`)
+  
   const forms = await Promise.all([
     Form.create({
         formUUID: 'b52e2f5f-763b-4e63-9124-0e707ea73f61',
