@@ -22,7 +22,11 @@ const Question = db.define('question', {
       'multiplechoice',
       'checkbox',
       'paragraph',
-      'input'
+      'input',
+      'date',
+      'radio',
+      'dropdown',
+      'heading'
       ),
     allowNull: false,
   },
