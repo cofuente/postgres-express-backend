@@ -4,9 +4,15 @@
   each field in api
     if field.questionType === "input"
       include partials/_input
+    if field.questionType === "date"
+      include partials/_date
     if field.questionType === "checkbox"
       include partials/_checkbox
     if field.questionType === "dropdown" || field.questionType === "multiplechoice"
       include partials/_select
     if field.questionType === "radio"
       include partials/_radio
+    if field.questionType === "heading"
+      include partials/_heading
+    if field.questionType === "paragraph"
+      include partials/_paragraph
