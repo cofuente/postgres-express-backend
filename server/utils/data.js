@@ -23,9 +23,7 @@ const questionData = [
     questionType: 'input',
     questionPrompt: 'Please tell us how you learned about NEXT. Be specific.',
   },
-
-,
-{
+  {
     questionType: 'input',
     questionPrompt: 'First Name',
   },
