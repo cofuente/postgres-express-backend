@@ -1,5 +1,5 @@
 const app = require('./server')
-const api = require('./data.js')
+const nextDistroEnrollmentForm = require('./client/utils/data.js')
 const PORT = process.env.PORT || 1337
 const { db } = require('./server/db/models')
 const chalkAnimation = require('chalk-animation')
@@ -22,7 +22,7 @@ frontend.use(express.static(path.join(__dirname, 'client/src/jade/next-distro-fe
   .set('views', path.join(__dirname, '/client/src/jade/next-distro-fe/'))
   .set('view engine', 'jade')
   .get('/', function (req, res) {
-    api.data.then(data=>{
+    nextDistroEnrollmentForm.data.then(data=>{
       console.log(data);
       res.status(200).render('index', {data})
     }).catch(e=>{
