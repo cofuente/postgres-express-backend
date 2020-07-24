@@ -27,9 +27,6 @@ div(style='text-align:center;margin-top:40px;')
   .field
     .control
       button.button.is-primary#nextBtn(type='button', onclick='nextPrev(1)') Start
-      //
-        <button class="sqs-block-button-element--small sqs-block-button-element custom-button-pad" onclick="window.location.href='/pwud-people-who-use-drugs'">Syringe Access</button>
-        <button class="sqs-block-button-element--small sqs-block-button-element custom-button-pad" onclick="window.location.href='/how-does-it-work'">General Info</button>
 .tab
   h3.fs-subtitle How our service works:
   ol
@@ -80,20 +77,6 @@ div(style='text-align:center;margin-top:40px;')
   label(for='check5')
     | I understand that I can communicate with NEXT staff if I have specific supply or privacy needs, no packages will be automatically sent to me- or sent without my expressed request.  This means that if a staff member reaches out for clarification or a question on your order, NEXT will not mail supplies until we receive your response.
   br
-  //
-    <div class="form-item field text">
-    <label class="title required">Enter Your Initials</label>
-    <input
-    id="terms"
-    type="text"
-    class="field-element text"
-    placeholder="Your initials"/>
-    <label class="title required">Today's Date</label>
-    <input
-    id="terms"
-    type="text"
-    class="field-element text"/>
-    </div>
   .field
     .control
       input.button.is-primary#prevBtn(type='button', value='Back', onclick='nextPrev(-1)')
