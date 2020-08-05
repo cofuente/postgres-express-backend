@@ -7,15 +7,11 @@ const express = require('express')
 const path = require('path')
 const frontend = new express();
 const cors = require('cors')
+const formatData = require('./client/utils/format.js')
 
 frontend.use(cors())
 frontend.use(express.json());
 frontend.use(express.urlencoded({ extended: true }))
-
-frontend.post('/', function(req,res){
-  var data = req.body;
-  console.log(data);
-});
 
 // Serve Jade files
 frontend.use(express.static(path.join(__dirname, 'client/src/jade/next-distro-fe/')))
@@ -28,6 +24,13 @@ frontend.use(express.static(path.join(__dirname, 'client/src/jade/next-distro-fe
     }).catch(e=>{
       console.log(e)
     })
+  })
+  .post('/', function(req,res){
+    var data = req.body;
+    var formattedSubmission = formatData(data)
+    //console.log(data);
+    console.log(formattedSubmission);
+    //res.send(`Full name is:${req.body.fname} ${req.body.lname}.`);
   })
   .listen(9000, () => console.log(`Listening on ${ 9000 }`))
 

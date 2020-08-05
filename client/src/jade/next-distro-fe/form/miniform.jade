@@ -1,0 +1,88 @@
+.field
+  label.label.required First Name
+  .control
+    input.input(name='First Name', required='')
+.field
+  label.label.required Last Name
+  .control
+    input.input(name='Last Name', required='')
+.field
+  label.label.required State
+  .control
+    .select
+      select(name='State', required='')
+        option(value='') --Select State--
+        option(value='AL') Alabama
+        option(value='AK') Alaska
+        option(value='AZ') Arizona
+        option(value='AR') Arkansas
+        option(value='CA') California
+        option(value='CO') Colorado
+        option(value='CT') Connecticut
+        option(value='DE') Delaware
+        option(value='FL') Florida
+        option(value='GA') Georgia
+        option(value='HI') Hawaii
+        option(value='ID') Idaho
+        option(value='IL') Illinois
+        option(value='IN') Indiana
+        option(value='IA') Iowa
+        option(value='KS') Kansas
+        option(value='KY') Kentucky
+        option(value='LA') Louisiana
+        option(value='ME') Maine
+        option(value='MD') Maryland
+        option(value='MA') Massachusetts
+        option(value='MI') Michigan
+        option(value='MN') Minnesota
+        option(value='MS') Mississippi
+        option(value='MO') Missouri
+        option(value='MT') Montana
+        option(value='NE') Nebraska
+        option(value='NV') Nevada
+        option(value='NH') New Hampshire
+        option(value='NJ') New Jersey
+        option(value='NM') New Mexico
+        option(value='NY') New York
+        option(value='NC') North Carolina
+        option(value='ND') North Dakota
+        option(value='OH') Ohio
+        option(value='OK') Oklahoma
+        option(value='OR') Oregon
+        option(value='PA') Pennsylvania
+        option(value='PR') Puerto Rico
+        option(value='RI') Rhode Island
+        option(value='SC') South Carolina
+        option(value='SD') South Dakota
+        option(value='TN') Tennessee
+        option(value='TX') Texas
+        option(value='UT') Utah
+        option(value='VT') Vermont
+        option(value='VA') Virginia
+        option(value='WA') Washington
+        option(value='WV') West Virginia
+        option(value='WI') Wisconsin
+        option(value='WY') Wyoming
+.field
+  label.label.required Zip Code
+  .control
+    input.input(type='number', name='Zip', placeholder='', required='', pattern='^[0-9]{5}(?:-[0-9]{4})?$', title="Please type a 5 or 9 digit zip code, '12345' or '12345-1234'")
+.field
+  label.label.required Date of Birth
+  .control
+    input.input(name='Date of Birth', type='date')
+.field
+  label.label.required Gender
+  .control
+    .select
+      select#gender(name='Gender', required='')
+        option(value='') -- Select an Option --
+        option(value='Woman') Woman
+        option(value='Man') Man
+        option(value='Nonbinary') Nonbinary
+        option(value='Other') Other
+        option(value='Prefer not to say') Prefer not to say
+.field
+  .control
+    input.button.is-primary(type='submit', value='Submit')
+

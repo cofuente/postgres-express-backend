@@ -2,10 +2,15 @@
   .form-inner-wrapper
     #cryptosubmit
       .row.sqs-row
-        form#customer(name='customer', action='javascript:void(0)', autocomplete='off')
+        form#customer(name='customer', autocomplete='off', method='POST', action='http://localhost:9000/')
           .field-list.clear
             h2.fs-title Secure Enrollment for NEXT Distro's Mail-based Harm Reduction Program
             
-            include tabs
+            //include tabs
             include form
+            //include miniform
+
+            .field
+              .control
+                input.button.is-primary(type='submit', value='Submit')
             
