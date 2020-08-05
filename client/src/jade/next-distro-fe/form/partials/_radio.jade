@@ -4,5 +4,5 @@
   each choice in field.possibleAnswers
     .control
       label.radio
-        input(type=field.questionType, name=field.questionPrompt, value=choice, required='')
-        = choice
+        input(type=field.questionType, name=field.questionUUID, value=choice[0], required='')
+        = choice[1]
