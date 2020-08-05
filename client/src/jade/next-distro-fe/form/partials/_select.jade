@@ -1,0 +1,9 @@
+// Select Dropdown
+.field
+  label.label.required= field.questionPrompt
+  .control
+    .select
+      select#language(name= field.questionPrompt, required='')
+        option(value='') --Select--
+        each choice in field.possibleAnswers
+          option(value=choice)= choice

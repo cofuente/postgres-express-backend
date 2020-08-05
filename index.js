@@ -1,9 +1,39 @@
 const app = require('./server')
+const nextDistroEnrollmentForm = require('./client/utils/data.js')
 const PORT = process.env.PORT || 1337
 const { db } = require('./server/db/models')
 const chalkAnimation = require('chalk-animation')
+const express = require('express')
+const path = require('path')
+const frontend = new express();
+const cors = require('cors')
 
+frontend.use(cors())
+frontend.use(express.json());
+frontend.use(express.urlencoded({ extended: true }))
 
+frontend.post('/', function(req,res){
+  var data = req.body;
+  console.log(data);
+});
+
+// Serve Jade files
+frontend.use(express.static(path.join(__dirname, 'client/src/jade/next-distro-fe/')))
+  .set('views', path.join(__dirname, '/client/src/jade/next-distro-fe/'))
+  .set('view engine', 'jade')
+  .get('/', function (req, res) {
+    nextDistroEnrollmentForm.data.then(data=>{
+      console.log(data);
+      res.status(200).render('index', {data})
+    }).catch(e=>{
+      console.log(e)
+    })
+  })
+  .listen(9000, () => console.log(`Listening on ${ 9000 }`))
+
+// Serve static files
+frontend.use('/static', express.static('client/public/'));
+  
 const init = async () => {
   if (require.main === module){
     //will only run when run with npm start and not with npm test to avoid db syncing in multiple threads when running tests
