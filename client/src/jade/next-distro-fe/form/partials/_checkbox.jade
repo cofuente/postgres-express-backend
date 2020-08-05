@@ -1,9 +1,9 @@
 // Checkbox Options
 .field
   label.label= field.questionPrompt
-  fieldset#addIdHere(name=field.questionPrompt)
+  fieldset(name=field.questionUUID)
     each choice in field.possibleAnswers
       .control
         label
-          input(type=field.questionType, name=field.questionPrompt + " - " + choice, value=choice)
-          = choice
+          input(type=field.questionType, value=choice[0])
+          = choice[1]

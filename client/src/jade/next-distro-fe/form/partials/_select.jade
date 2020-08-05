@@ -3,7 +3,7 @@
   label.label.required= field.questionPrompt
   .control
     .select
-      select#language(name= field.questionPrompt, required='')
+      select(name= field.questionUUID, required='')
         option(value='') --Select--
         each choice in field.possibleAnswers
-          option(value=choice)= choice
+          option(value=choice[0])= choice[1]
