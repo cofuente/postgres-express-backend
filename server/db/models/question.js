@@ -26,7 +26,8 @@ const Question = db.define('question', {
       'date',
       'radio',
       'dropdown',
-      'heading'
+      'heading',
+      'number'
       ),
     allowNull: false,
   },
