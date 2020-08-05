@@ -6,7 +6,6 @@
   "scripts": {
     "test": "test",
     "seed": "node server/utils/seed.js",
-    "old-seed": "node server/utils/old_seed.js",
     "methods": "node server/utils/methods.js",
     "start": "node index"
   },
