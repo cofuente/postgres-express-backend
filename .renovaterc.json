@@ -1,4 +1,5 @@
 {
   "enabled": true,
-  "prCreation": "immediate"
+  "prCreation": "immediate",
+  "automerge": false
 }
