@@ -12,18 +12,12 @@ frontend.use(cors())
 frontend.use(express.json());
 frontend.use(express.urlencoded({ extended: true }))
 
-frontend.post('/', function(req,res){
-  var data = req.body;
-  console.log(data);
-});
-
 // Serve Jade files
 frontend.use(express.static(path.join(__dirname, 'client/src/jade/next-distro-fe/')))
   .set('views', path.join(__dirname, '/client/src/jade/next-distro-fe/'))
   .set('view engine', 'jade')
   .get('/', function (req, res) {
     nextDistroEnrollmentForm.data.then(data=>{
-      console.log(data);
       res.status(200).render('index', {data})
     }).catch(e=>{
       console.log(e)
