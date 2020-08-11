@@ -1,19 +1,19 @@
 const express = require('express')
 const volleyball = require('volleyball')
 const bodyParser = require('body-parser')
-const app = express()
+const server = express()
 
 
-app.use(volleyball)
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true}))
+server.use(volleyball)
+server.use(bodyParser.json())
+server.use(bodyParser.urlencoded({extended: true}))
 
 /* "Responding" middleware (may send a response back to client) */
-app.use('/api', require('./api'))
+server.use('/api', require('./api'))
 
-app.use((err, req, res, next) => {
+server.use((err, req, res, next) => {
 	console.error(err.stack)
 	res.status(err.status || 500).send(err.message || 'Internal Error')
 })
 
-module.exports = app
+module.exports = server
