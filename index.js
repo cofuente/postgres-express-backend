@@ -23,7 +23,7 @@ frontend.use(express.static(path.join(__dirname, 'client/src/jade/next-distro-fe
       console.log(e)
     })
   })
-  .listen(9000, () => console.log(`Listening on ${ 9000 }`))
+  .listen(9000, () => console.log(`Web client is listening on ${ 9000 }`))
 
 // Serve static files
 frontend.use('/static', express.static('client/public/'));
