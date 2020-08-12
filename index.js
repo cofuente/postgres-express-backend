@@ -1,12 +1,13 @@
-const server = require('./server')
-const nextDistroEnrollmentForm = require('./client/utils/data.js')
-const PORT = process.env.PORT || 1337
-const { db } = require('./server/db/models')
 const chalkAnimation = require('chalk-animation')
 const express = require('express')
 const path = require('path')
-const frontend = new express();
 const cors = require('cors')
+const PORT = process.env.PORT || 1337
+// TODO: figure out a way to resolve the serving of separate fe/be ports
+const server = require('./server')
+const { db } = require('./server/db/models')
+const frontend = new express();
+const nextDistroEnrollmentForm = require('./client/utils/data.js')
   
 // Initialize server 
 const init = async () => {
@@ -39,7 +40,7 @@ frontend.use(express.static(path.join(__dirname, 'client/src/jade/next-distro-fe
   .get('/', function (req, res) {
     nextDistroEnrollmentForm.data.then(data=>{
       res.status(200).render('index', {data})
-    }).catch(e=>{
+    }).catch(e =>{
       console.log(e)
     })
   })
