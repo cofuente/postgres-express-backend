@@ -3,17 +3,18 @@ module.exports = (data) => {
   let uuid = Object.keys(data)
   let values = Object.values(data)
 
-  submission["formUUID"] = "GETFORMUUID"
+  submission["formUUID"] = values[0]
   submission["answers"] = []
 
+  /*
   for ( var i = 1; i <= uuid.length; i++ ) {
     let mergedSelections = []
     if uuid[i] === uuid[i-1] {
       let addComma = values[i-1] + ", "
       addComma.concat(values[i])
     }
-
   }
+  */
 
   for ( var i = 1; i <= uuid.length; i++ ) {
     let answerObject = {}

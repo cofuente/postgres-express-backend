@@ -1,7 +1,7 @@
 // One "tab" for each step in the form (main form tab):
-- var api = data
 .tab
-  each field in api
+  input(type="hidden", name="formUUID", value=api.formUUID)
+  each field in api.questions
     if field.questionType === "input"
       include partials/_input
     if field.questionType === "date"
