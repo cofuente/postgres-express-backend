@@ -4,7 +4,7 @@ const db = require('../db/_db')
 const chalk = require('chalk')
 const chalkAnimation = require('chalk-animation')
 const {Form, Question, Answer, Submission, QuestionForm} = require('../db/models')
-const questionData = require('./data')
+const questionData = require('./seedData')
 
 async function seed() {
   await db.sync({force: true})

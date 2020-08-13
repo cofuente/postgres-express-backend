@@ -1,9 +1,16 @@
 var axios = require('axios');
+const chalkAnimation = require('chalk-animation')
 
-module.exports.data = axios.get('https://postgress-express-backend.herokuapp.com/api/questions')
+console.log('==============^^^^^^^^^this is the process:', process)
+console.log('==============^^^^^^^^^this is the env:', process.env)
+console.log('==============^^^^^^^^^this is the node:', process.env.node)
+// TD: fix this environment identifier
+const current = process.env.NODE.slice(0,7) !== '/Users/' ? 'http://localhost:1337' : 'https://postgress-express-backend.herokuapp.com'
+
+module.exports.data = axios.get(`${current}/api/questions`)
   .then(response => {
     let form = response.data
-    console.log("The API has loaded");
+    setTimeout(() => chalkAnimation.rainbow('The frontend has successfully loaded data from the API'), 4000)
     return form
   })
   .catch(error => {
