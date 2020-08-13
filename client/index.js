@@ -23,7 +23,7 @@ frontend.use(express.static(path.join(__dirname, './src/jade/next-distro-fe/')))
     })
   })
   .listen(PORT, () => {
-    setTimeout(() => chalkAnimation.pulse(`Web client is listening on ${PORT}`), 3580) 
+    setTimeout(() => chalkAnimation.pulse(`Web client served on port ${PORT}`), 3580) 
   })
 
 // Serve static files
