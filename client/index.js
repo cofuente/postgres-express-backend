@@ -2,6 +2,7 @@ const chalkAnimation = require('chalk-animation')
 const express = require('express')
 const path = require('path')
 const cors = require('cors')
+const PORT = process.env.PORT || 9000
 // TODO: figure out a way to resolve the serving of separate fe/be ports
 const frontend = new express();
 const nextDistroEnrollmentForm = require('./utils/data.js')
@@ -21,8 +22,8 @@ frontend.use(express.static(path.join(__dirname, './src/jade/next-distro-fe/')))
       console.log(e)
     })
   })
-  .listen(9000, () => {
-    setTimeout(() => chalkAnimation.pulse(`Web client is listening on ${ 9000 }`), 3580) 
+  .listen(PORT, () => {
+    setTimeout(() => chalkAnimation.pulse(`Web client is listening on ${PORT}`), 3580) 
   })
 
 // Serve static files
