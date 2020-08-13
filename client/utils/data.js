@@ -7,7 +7,7 @@ const current = process.env.NODE.slice(0,7) !== '/Users/' ? 'http://localhost:13
 module.exports.data = axios.get(`${current}/api/questions`)
   .then(response => {
     let form = response.data
-    setTimeout(() => chalkAnimation.rainbow("The frontend has successfully loaded data from the API"), 4000)
+    setTimeout(() => chalkAnimation.rainbow('The frontend has successfully loaded data from the API'), 4000)
     return form
   })
   .catch(error => {
