@@ -6,7 +6,7 @@ const current = process.env.NODE !== '/app/.heroku/node/bin/node' ? 'http://loca
 module.exports.data = axios.get(`${current}/api/questions`)
   .then(response => {
     let form = response.data
-    setTimeout(() => chalkAnimation.rainbow('The frontend has successfully loaded data from the API'), 4000)
+    setTimeout(() => chalkAnimation.karaoke('The frontend has successfully loaded data from the API'), 4000)
     return form
   })
   .catch(error => {
