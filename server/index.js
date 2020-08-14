@@ -34,9 +34,3 @@ const bootServer = async () => {
 }
 
 bootServer()
-
-module.exports = {
-	server,
- // TD: do we need PORT exported? lets unify it
-  PORT
-}
