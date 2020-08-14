@@ -5,9 +5,8 @@ const bodyParser = require('body-parser')
 const express = require('express')
 const PORT = process.env.PORT || 1337
 const { db } = require('./server/db/models')
-// const nextDistroEnrollmentForm = require('./client/utils/data.js')
 const fullStack = express()
-  
+
 // logging middleware
 fullStack.use(volleyball)
 
@@ -43,6 +42,7 @@ const bootServer = async () => {
   }
 }
 const serveClient = async () => {
+  const nextDistroEnrollmentForm = require('./client/utils/data.js')
   try {
     await fullStack.get('/', (req, res) => {
       nextDistroEnrollmentForm.data.then( (data) => res.status(200).render('index', {data}))
@@ -54,7 +54,7 @@ const serveClient = async () => {
 
 async function bootFullStack() {
   await bootServer()
-  // await serveClient()
+  await serveClient()
 }
 
 bootFullStack()
