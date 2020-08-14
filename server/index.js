@@ -35,6 +35,6 @@ bootServer()
 
 module.exports = {
 	server,
- // TD: do we need PORT exported?
+ // TD: do we need PORT exported? lets unify it
   PORT
 }
