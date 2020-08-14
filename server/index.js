@@ -6,17 +6,21 @@ const PORT = process.env.PORT || 1337
 const { db } = require('./db/models')
 const server = express()
 
-
+// logging middleware
 server.use(volleyball)
+
+// body parsing middleware
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({extended: true}))
 
-/* "Responding" middleware (may send a response back to client) */
+// api routes
 server.use('/api', require('./api'))
 
+// error handling endware
 server.use((err, req, res, next) => {
-	console.error(err.stack)
-	res.status(err.status || 500).send(err.message || 'Internal Error')
+  console.error(err)
+  console.error(err.stack)
+  res.status(err.status || 500).send(err.message || 'Internal server error.')
 })
 const bootServer = async () => {
   try {
