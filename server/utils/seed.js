@@ -1,4 +1,4 @@
-'use strict'
+'use strict' // TD: figure out why we're using strict here
 
 const db = require('../db/_db')
 const chalk = require('chalk')
