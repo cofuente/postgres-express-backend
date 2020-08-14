@@ -3,7 +3,6 @@ const express = require('express')
 const path = require('path')
 const cors = require('cors')
 const PORT = process.env.PORT || 9000
-// TODO: figure out a way to resolve the serving of separate fe/be ports
 const frontend = new express();
 const nextDistroEnrollmentForm = require('./utils/data.js')
 
