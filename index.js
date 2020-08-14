@@ -7,6 +7,8 @@ const PORT = process.env.PORT || 1337
 const { db } = require('./server/db/models')
 const fullStack = express()
 
+
+
 const buildStack = async () => {
   // logging middleware
   fullStack.use(volleyball)
@@ -47,7 +49,7 @@ const serveClient = async () => {
   const nextDistroEnrollmentForm = require('./client/utils/data.js')
   try {
     await fullStack.get('/', (req, res) => {
-      nextDistroEnrollmentForm.data.then( (data) => res.status(200).render('index', {data}))
+      nextDistroEnrollmentForm.then( (data) => res.status(200).render('index', {data}))
     })
   } catch (err) {
     console.error(err)
