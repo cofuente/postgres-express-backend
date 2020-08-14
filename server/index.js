@@ -24,13 +24,8 @@ server.use((err, req, res, next) => {
 })
 const bootServer = async () => {
   try {
-    await db.sync()
-    chalkAnimation.radar('The postgres server is up and running - maybe you should go catch it!', 2.58)
-    setTimeout(() => {
-      server.listen(PORT, () => {
-        chalkAnimation.neon(`Your server kindly awaits your attention on port ${PORT}`)
-      })
-    }, 1800)
+    await db.sync().then(chalkAnimation.rainbow('The postgres server is up and running - maybe you should go catch it!'))
+    await server.listen(PORT, () => chalkAnimation.neon(`Your server kindly awaits your attention on port ${PORT}`))
   } catch (err) {
     console.error(err)
   }
