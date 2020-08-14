@@ -22,6 +22,7 @@ server.use((err, req, res, next) => {
   console.error(err.stack)
   res.status(err.status || 500).send(err.message || 'Internal server error.')
 })
+
 const bootServer = async () => {
   // TD: figure out how to unobscure request logger; idea: create sub app and use on mount event 
   try {
