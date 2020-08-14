@@ -49,7 +49,7 @@ const serveClient = async () => {
   const nextDistroEnrollmentForm = require('./client/utils/data.js')
   try {
     await fullStack.get('/', (req, res) => {
-      nextDistroEnrollmentForm.then( (data) => res.status(200).render('index', {data}))
+      nextDistroEnrollmentForm.then( data => res.status(200).render('index', {data}))
     })
   } catch (err) {
     console.error(err)
