@@ -34,7 +34,7 @@ const buildStack = async () => {
   })
 }
 
-const bootServer = async () => {
+const bootServer = async () => { // TD: make sure thisand the other bootServer aren't blocking the logging middlewares, try .then try await
   try {
     await db.sync().then(chalkAnimation.rainbow('The postgres server is up and running - maybe you should go catch it!'))
     await fullStack.listen(PORT, () => chalkAnimation.neon(`Your server kindly awaits your attention on port ${PORT}`))
