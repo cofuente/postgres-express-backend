@@ -35,6 +35,5 @@ bootServer()
 
 module.exports = {
 	server,
-  bootServer,
   PORT
 }
