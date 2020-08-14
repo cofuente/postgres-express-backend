@@ -36,7 +36,7 @@ const buildStack = async () => {
   })
 }
 
-const bootServer = async () => { // TD: make sure th animated logs aren't blocking the logging middlewares, try moving animated logs to a parent app? https://expressjs.com/en/4x/api.html#app.use
+const bootServer = async () => { // TD: make sure th animated logs aren't blocking the logging middlewares, try moving animated logs to a parent app? https://expressjs.com/en/4x/api.html#app.use or https://expressjs.com/en/4x/api.html#app.enable
   try {
     await db.sync().then(chalkAnimation.rainbow('The postgres server is up and running - maybe you should go catch it!'))
     await fullStack.listen(PORT, () => chalkAnimation.neon(`Your server kindly awaits your attention on port ${PORT}`))
