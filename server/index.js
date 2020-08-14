@@ -23,6 +23,7 @@ server.use((err, req, res, next) => {
   res.status(err.status || 500).send(err.message || 'Internal server error.')
 })
 const bootServer = async () => {
+  // TD: figure out how to unobscure request logger; idea: create sub app and use on mount event 
   try {
     await db.sync().then(chalkAnimation.rainbow('The postgres server is up and running - maybe you should go catch it!'))
     await server.listen(PORT, () => chalkAnimation.neon(`Your server kindly awaits your attention on port ${PORT}`))
