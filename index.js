@@ -7,6 +7,8 @@ const PORT = process.env.PORT || 1337
 const { db } = require('./server/db/models')
 const fullStack = express()
 
+const postFormattedData = require('./client/utils/submission.js')
+
 const buildStack = async () => {
   // logging middleware
   fullStack.use(volleyball)
@@ -51,10 +53,7 @@ const serveClient = async () => {
     })
     .post('/', function(req,res){
       var data = req.body;
-      var formattedSubmission = formatData(data)
-      //console.log(data);
-      console.log(formattedSubmission);
-      //res.send(`Full name is:${req.body.fname} ${req.body.lname}.`);
+      postFormattedData(data)
     })
   } catch (err) {
     console.error(err)
