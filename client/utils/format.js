@@ -27,6 +27,6 @@ module.exports = (data) => {
 
 
 
-  return submission;
+  return JSON.stringify(submission);
 
 }
