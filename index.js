@@ -49,6 +49,13 @@ const serveClient = async () => {
     await fullStack.get('/', (req, res) => {
       nextDistroEnrollmentForm.data.then( (data) => res.status(200).render('index', {data}))
     })
+    .post('/', function(req,res){
+      var data = req.body;
+      var formattedSubmission = formatData(data)
+      //console.log(data);
+      console.log(formattedSubmission);
+      //res.send(`Full name is:${req.body.fname} ${req.body.lname}.`);
+    })
   } catch (err) {
     console.error(err)
   }
