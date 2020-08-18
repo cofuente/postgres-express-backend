@@ -7,8 +7,6 @@ const PORT = process.env.PORT || 1337
 const { db } = require('./server/db/models')
 const fullStack = express()
 
-
-
 const buildStack = async () => {
   // logging middleware
   fullStack.use(volleyball)
