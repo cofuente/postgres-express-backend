@@ -8,7 +8,6 @@ const { db } = require('./server/db/models')
 const fullStack = express()
 
 const buildStack = async () => {
-  
   // serve Jade files 
   fullStack.use(express.static(path.join(__dirname, './client/src/jade/next-distro-fe/')))
   fullStack.set('views', path.join(__dirname, './client/src/jade/next-distro-fe/'))
@@ -16,13 +15,23 @@ const buildStack = async () => {
   
   // serve static files
   fullStack.use('/static', express.static('./client/public/'))
+ 
+  // logging middleware
+  fullStack.use(volleyball)
   
+  // creating separate backend routing
   const backEnd = express()
+
+  // using mount event for dynamic logging 
+  backEnd.on('mount', function (parent) {
+    // console.log('*********************A THING HAPPENED')
+    chalkAnimation.rainbow('Server running.')
+    // console.log(parent) // refers to the parent app
+  })
+
+  // connecting server 
   backEnd.use('/', require('./server/api'))
 
-  // logging middleware
-  backEnd.use(volleyball)
-  
   // body parsing middleware
   backEnd.use(bodyParser.json())
   backEnd.use(bodyParser.urlencoded({extended: true}))
@@ -34,7 +43,7 @@ const buildStack = async () => {
     res.status(err.status || 500).send(err.message || 'Internal server error.')
   })
 
-  // api routes
+  // mounting backEnd to fullStack
   fullStack.use('/api', backEnd)
 
   // error handling endware
@@ -47,8 +56,8 @@ const buildStack = async () => {
 
 const bootServer = async () => { // TD: make sure th animated logs aren't blocking the logging middlewares, try moving animated logs to a parent app? https://expressjs.com/en/4x/api.html#app.use or https://expressjs.com/en/4x/api.html#app.enable
   try {
-    await db.sync().then(chalkAnimation.rainbow('The postgres server is up and running - maybe you should go catch it!'))
-    await fullStack.listen(PORT, () => chalkAnimation.neon(`Your server kindly awaits your attention on port ${PORT}`))
+    await db.sync()
+    await fullStack.listen(PORT)
   } catch (err) {
     console.error(err)
   }
