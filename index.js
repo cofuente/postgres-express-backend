@@ -23,10 +23,10 @@ const buildStack = async () => {
   const backEnd = express()
 
   // using mount event for dynamic logging 
-  backEnd.on('mount', function (parent) {
-    // console.log('*********************A THING HAPPENED')
-    chalkAnimation.rainbow('Server running.')
+  backEnd.on('mount', (parent) => {
     // console.log(parent) // refers to the parent app
+    console.log('cone time log')
+    // chalkAnimation.rainbow('Server running.')
   })
 
   // connecting server 
