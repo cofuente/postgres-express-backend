@@ -4,6 +4,7 @@ const volleyball = require('volleyball')
 const bodyParser = require('body-parser')
 const express = require('express')
 const PORT = process.env.PORT || 1337
+const current = process.env.NODE !== '/app/.heroku/node/bin/node' ? `http://localhost:${PORT}` : 'https://postgress-express-backend.herokuapp.com'
 const { db } = require('./server/db/models')
 const fullStack = express()
 
@@ -37,8 +38,9 @@ const buildStack = async () => {
 const bootServer = async () => {
   try {
     await db.sync()
+    console.log(chalk.blue(`Postgres server is up and running!`))
     await fullStack.listen(PORT)
-    console.log(chalk.blue(`Server listening on port:${PORT}`))
+    console.log(chalk.blue(`API listening on port:${PORT}`))
   } catch (err) {
     console.error(err)
   }
@@ -50,7 +52,7 @@ const serveClient = async () => {
     await fullStack.get('/', (req, res) => {
       nextDistroEnrollmentForm.then( data => res.status(200).render('index', {data}))
     })
-    console.log(chalk.magenta(`Client awaits at http://localhost:${PORT}`))
+    console.log(chalk.magenta(`Client awaits at ${current}`))
   } catch (err) {
     console.error(err)
   }
