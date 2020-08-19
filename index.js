@@ -34,7 +34,7 @@ const buildStack = async () => {
   })
 }
 
-const bootServer = async () => { // TD: make sure th animated logs aren't blocking the logging middlewares, try moving animated logs to a parent app? https://expressjs.com/en/4x/api.html#app.use or https://expressjs.com/en/4x/api.html#app.enable
+const bootServer = async () => {
   try {
     await db.sync()
     await fullStack.listen(PORT)
