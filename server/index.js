@@ -1,13 +1,12 @@
 const express = require('express')
-const volleyball = require('volleyball')
+const morgan = require('morgan')
 const bodyParser = require('body-parser')
-const chalkAnimation = require('chalk-animation')
 const PORT = process.env.PORT || 1337
 const { db } = require('./db/models')
 const server = express()
 
 // logging middleware
-server.use(volleyball)
+server.use(morgan)
 
 // body parsing middleware
 server.use(bodyParser.json())

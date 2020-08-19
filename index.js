@@ -1,6 +1,6 @@
 const path = require('path')
 const chalk = require('chalk')
-const volleyball = require('volleyball')
+const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const express = require('express')
 const PORT = process.env.PORT || 1337
@@ -10,7 +10,7 @@ const fullStack = express()
 
 const buildStack = async () => {
   // logging middleware
-  fullStack.use(volleyball)
+  fullStack.use(morgan)
 
   // body parsing middleware
   fullStack.use(bodyParser.json())
