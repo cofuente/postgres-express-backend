@@ -1,5 +1,5 @@
 const path = require('path')
-const chalkAnimation = require('chalk-animation')
+const chalk = require('chalk')
 const volleyball = require('volleyball')
 const bodyParser = require('body-parser')
 const express = require('express')
@@ -8,6 +8,16 @@ const { db } = require('./server/db/models')
 const fullStack = express()
 
 const buildStack = async () => {
+  // logging middleware
+  fullStack.use(volleyball)
+
+  // body parsing middleware
+  fullStack.use(bodyParser.json())
+  fullStack.use(bodyParser.urlencoded({extended: true}))
+
+  // mounting backEnd to fullStack
+  fullStack.use('/api', require('./server/api'))
+  
   // serve Jade files 
   fullStack.use(express.static(path.join(__dirname, './client/src/jade/next-distro-fe/')))
   fullStack.set('views', path.join(__dirname, './client/src/jade/next-distro-fe/'))
@@ -15,36 +25,6 @@ const buildStack = async () => {
   
   // serve static files
   fullStack.use('/static', express.static('./client/public/'))
- 
-  // logging middleware
-  fullStack.use(volleyball)
-  
-  // creating separate backend routing
-  const backEnd = express()
-
-  // using mount event for dynamic logging 
-  backEnd.on('mount', (parent) => {
-    // console.log(parent) // refers to the parent app
-    console.log('cone time log')
-    // chalkAnimation.rainbow('Server running.')
-  })
-
-  // connecting server 
-  backEnd.use('/', require('./server/api'))
-
-  // body parsing middleware
-  backEnd.use(bodyParser.json())
-  backEnd.use(bodyParser.urlencoded({extended: true}))
-  
-  // error handling endware
-  backEnd.use((err, req, res, next) => {
-    console.error(err)
-    console.error(err.stack)
-    res.status(err.status || 500).send(err.message || 'Internal server error.')
-  })
-
-  // mounting backEnd to fullStack
-  fullStack.use('/api', backEnd)
 
   // error handling endware
   fullStack.use((err, req, res, next) => {
@@ -58,6 +38,7 @@ const bootServer = async () => { // TD: make sure th animated logs aren't blocki
   try {
     await db.sync()
     await fullStack.listen(PORT)
+    console.log(chalk.blue(`Server listening on port:${PORT}`))
   } catch (err) {
     console.error(err)
   }
@@ -69,6 +50,7 @@ const serveClient = async () => {
     await fullStack.get('/', (req, res) => {
       nextDistroEnrollmentForm.then( data => res.status(200).render('index', {data}))
     })
+    console.log(chalk.magenta(`Client awaits at http://localhost:${PORT}`))
   } catch (err) {
     console.error(err)
   }
