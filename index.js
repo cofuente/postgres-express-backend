@@ -8,15 +8,6 @@ const { db } = require('./server/db/models')
 const fullStack = express()
 
 const buildStack = async () => {
-  // logging middleware
-  fullStack.use(volleyball)
-  
-  // body parsing middleware
-  fullStack.use(bodyParser.json())
-  fullStack.use(bodyParser.urlencoded({extended: true}))
-  
-  // api routes
-  fullStack.use('/api', require('./server/api'))
   
   // serve Jade files 
   fullStack.use(express.static(path.join(__dirname, './client/src/jade/next-distro-fe/')))
@@ -26,6 +17,26 @@ const buildStack = async () => {
   // serve static files
   fullStack.use('/static', express.static('./client/public/'))
   
+  const backEnd = express()
+  backEnd.use('/', require('./server/api'))
+
+  // logging middleware
+  backEnd.use(volleyball)
+  
+  // body parsing middleware
+  backEnd.use(bodyParser.json())
+  backEnd.use(bodyParser.urlencoded({extended: true}))
+  
+  // error handling endware
+  backEnd.use((err, req, res, next) => {
+    console.error(err)
+    console.error(err.stack)
+    res.status(err.status || 500).send(err.message || 'Internal server error.')
+  })
+
+  // api routes
+  fullStack.use('/api', backEnd)
+
   // error handling endware
   fullStack.use((err, req, res, next) => {
     console.error(err)
