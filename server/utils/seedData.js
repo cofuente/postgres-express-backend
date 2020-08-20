@@ -202,39 +202,39 @@ const questionData = [
     questionType: 'checkbox',
     questionPrompt: 'Have you been diagnosed with any of the following (check all that apply)',
     possibleAnswers: [
-      ["Diagnosed - HIV/AIDS", "HIV/AIDS"],
-      ["Diagnosed - Hepatitis C", "Hepatitis C"],
-      ["Diagnosed - Diabetes", "Diabetes"],
-      ["Diagnosed - Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)", "Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)"],
-      ["Diagnosed - Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)", "Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)"],
-      ["Diagnosed - Other", "Other"]
+      ['Diagnosed - HIV/AIDS', 'HIV/AIDS'],
+      ['Diagnosed - Hepatitis C', 'Hepatitis C'],
+      ['Diagnosed - Diabetes', 'Diabetes'],
+      ['Diagnosed - Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)', 'Mental Health Disorder (Bi-Polar Disorder, Depressive Disorder, Major Personality Disorder, Schizophrenia, etc)'],
+      ['Diagnosed - Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)', 'Respiratory Disease (Asthma, Chronic Obstructive Pulmonary Disease)'],
+      ['Diagnosed - Other', 'Other']
     ]
   },
   {
     questionType: 'dropdown',
     questionPrompt: 'What is your housing status?',
     possibleAnswers: [
-      ["I rent or own my own home/apartment- Stable Situation", "I rent or own my own home/apartment- Stable Situation"],
-      ["I rent or own my own home/apartment- Unstable Situation", "I rent or own my own home/apartment- Unstable Situation"],
-      ["I live with family or friends - Stable Situation", "I live with family or friends - Stable Situation"],
-      ["I live with family or friends- Unstable Situation", "I live with family or friends- Unstable Situation"],
-      ["Homeless in the Shelter System", "Homeless in the Shelter System"],
-      ["Homeless not in the Shelter System", "Homeless not in the Shelter System"],
-      ["Other", "My housing status is not described here"]
+      ['I rent or own my own home/apartment- Stable Situation', 'I rent or own my own home/apartment- Stable Situation'],
+      ['I rent or own my own home/apartment- Unstable Situation', 'I rent or own my own home/apartment- Unstable Situation'],
+      ['I live with family or friends - Stable Situation', 'I live with family or friends - Stable Situation'],
+      ['I live with family or friends- Unstable Situation', 'I live with family or friends- Unstable Situation'],
+      ['Homeless in the Shelter System', 'Homeless in the Shelter System'],
+      ['Homeless not in the Shelter System', 'Homeless not in the Shelter System'],
+      ['Other', 'My housing status is not described here']
     ]
   },
   { 
     questionType: 'dropdown',
     questionPrompt: 'Have you been arrested or incarcerated in the past year?',
     possibleAnswers: [
-      ["No", "No"],
-      ["Yes, on probation", "Yes, on probation"],
-      ["Yes, on parole", "Yes, on parole"],
-      ["Yes, on probation and parole", "Yes, on probation and parole"],
-      ["Yes, awaiting trial/judge", "Yes, awaiting trial/judge"],
-      ["Yes, outstanding warrant", "Yes, outstanding warrant"],
-      ["Yes, case pending", "Yes, case pending"],
-      ["Yes, none of the above", "Yes, none of the above"],
+      ['No', 'No'],
+      ['Yes, on probation', 'Yes, on probation'],
+      ['Yes, on parole', 'Yes, on parole'],
+      ['Yes, on probation and parole', 'Yes, on probation and parole'],
+      ['Yes, awaiting trial/judge', 'Yes, awaiting trial/judge'],
+      ['Yes, outstanding warrant', 'Yes, outstanding warrant'],
+      ['Yes, case pending', 'Yes, case pending'],
+      ['Yes, none of the above', 'Yes, none of the above'],
     ]
   },
   {
@@ -254,10 +254,10 @@ const questionData = [
     questionType: 'dropdown',
     questionPrompt: 'About how many times per day do you inject?',
     possibleAnswers: [
-      ["Less than once per day", "Less than once per day"],
-      ["Once per day", "2 - 5 Times per day"],
-      ["6 - 10 Times per day", "6 - 10 Times per day"],
-      ["11+ Times per day", "11+ Times per day"]
+      ['Less than once per day', 'Less than once per day'],
+      ['Once per day', '2 - 5 Times per day'],
+      ['6 - 10 Times per day', '6 - 10 Times per day'],
+      ['11+ Times per day', '11+ Times per day']
     ]
   },
   {
@@ -268,19 +268,19 @@ const questionData = [
     questionType: 'checkbox',
     questionPrompt: 'What drugs have you used in the past 30 days?',
     possibleAnswers: [
-      ["Less than once per day", "Less than once per day"],
-      ["Once per day", "2 - 5 Times per day"],
-      ["6 - 10 Times per day", "6 - 10 Times per day"],
-      ["11+ Times per day", "11+ Times per day"],
+      ['Less than once per day', 'Less than once per day'],
+      ['Once per day', '2 - 5 Times per day'],
+      ['6 - 10 Times per day', '6 - 10 Times per day'],
+      ['11+ Times per day', '11+ Times per day'],
     ]
   },
   {
     questionType: 'radio',
     questionPrompt: 'Do you inject pills?',
     possibleAnswers: [
-      ["Yes", "Yes"],
-      ["No", "No"],
-      ["Yes, rarely", "Yes, rarely"],
+      ['Yes', 'Yes'],
+      ['No', 'No'],
+      ['Yes, rarely', 'Yes, rarely'],
     ]
   },
   { 
@@ -299,27 +299,27 @@ const questionData = [
     questionType: 'dropdown',
     questionPrompt: 'Do you currently have naloxone (or Narcan)?',
     possibleAnswers: [
-      ["Yes", "Yes"],
-      ["No", "No"],
-      ["Unsure", "I don\'t know / I don\'t remember"]
+      ['Yes', 'Yes'],
+      ['No', 'No'],
+      ['Unsure', 'I don\'t know / I don\'t remember']
     ]
   },
   {
     questionType: 'dropdown',
     questionPrompt: 'Have you overdosed in the past year?',
     possibleAnswers: [
-      ["Yes", "Yes"],
-      ["No", "No"],
-      ["Unsure", "I don\'t know / I don\'t remember"]
+      ['Yes', 'Yes'],
+      ['No', 'No'],
+      ['Unsure', 'I don\'t know / I don\'t remember']
     ]
   },
   {
     questionType: 'dropdown',
     questionPrompt: 'Have you witnessed someone overdose in the past year?',
     possibleAnswers: [
-      ["Yes", "Yes"],
-      ["No", "No"],
-      ["Unsure", "I don\'t know / I don\'t remember"]
+      ['Yes', 'Yes'],
+      ['No', 'No'],
+      ['Unsure', 'I don\'t know / I don\'t remember']
     ]
   },
   {
@@ -342,19 +342,19 @@ const questionData = [
     questionType: 'dropdown',
     questionPrompt: 'We understand that in some circumstances, you may support other people in need with the supplies we send. If this is likely, about how many people do you expect will receive supplies that we send to you for their own use?',
     possibleAnswers: [
-      ["1 - 10 people", "1 - 10 people"],
-      ["20 - 30 people", "20 - 30 people"],
-      ["30 - 40 people", "30 - 40 people"],
-      ["40 - 50 people", "40 - 50 people"],
-      ["More than 50 people", "More than 50 people"]
+      ['1 - 10 people', '1 - 10 people'],
+      ['20 - 30 people', '20 - 30 people'],
+      ['30 - 40 people', '30 - 40 people'],
+      ['40 - 50 people', '40 - 50 people'],
+      ['More than 50 people', 'More than 50 people']
     ]
   },
   {
     questionType: 'dropdown',
     questionPrompt: 'NEXT usually uses USPS, and we can send your package one of two ways. Please take a minute to think about which option works best for you:',
     possibleAnswers: [
-      ["Tracked", "NEXT will send me a tracking number so I will know when to expect my package"],
-      ["Untracked", "NEXT will send me a tracking number so I will know when to expect my package"]
+      ['Tracked', 'NEXT will send me a tracking number so I will know when to expect my package'],
+      ['Untracked', 'NEXT will send me a tracking number so I will know when to expect my package']
     ]
   },
   {
