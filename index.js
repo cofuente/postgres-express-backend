@@ -37,7 +37,7 @@ const buildStack = async () => {
 const bootServer = async () => {
   try {
     await db.sync()
-    console.log(chalk.blue(`Postgres server is up and running!`))
+    console.log(chalk.green(`Postgres server is up and running!`))
     await fullStack.listen(PORT)
     console.log(chalk.blue(`API listening on port:${PORT}`))
   } catch (err) {
