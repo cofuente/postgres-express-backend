@@ -15,6 +15,7 @@ async function seed() {
 
   const forms = await Promise.all([
     Form.create({
+        formUUID: '78d51d9e-0285-4022-81c5-7f14955315d0',
         title: 'Secure Enrollment for NEXT Distro\'s Mail-based Harm Reduction Program',
         stateCode: 'NY',
       }, {
