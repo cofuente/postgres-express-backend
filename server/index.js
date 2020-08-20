@@ -1,9 +1,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const chalk = require('chalk')
-const PORT = process.env.PORT || 1337
 const { db } = require('./db/models')
 const logger = require('./utils/logger')
+const PORT = process.env.PORT || 1337
 const server = express()
 
 // logging middleware
