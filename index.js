@@ -7,6 +7,12 @@ const logger = require('./server/utils/logger')
 const PORT = process.env.PORT || 1337
 const current = process.env.NODE !== '/app/.heroku/node/bin/node' ? `http://localhost:${PORT}` : 'https://postgress-express-backend.herokuapp.com'
 const fullStack = express()
+<<<<<<< HEAD
+=======
+
+const postFormattedData = require('./client/utils/submission.js')
+
+>>>>>>> b048e1fc5228752a4a688b84d044fe93b10dd16e
 const buildStack = async () => {
   // logging middleware
   fullStack.use(logger)
