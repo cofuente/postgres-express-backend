@@ -1,20 +1,20 @@
 const path = require('path')
-const chalkAnimation = require('chalk-animation')
-const volleyball = require('volleyball')
+const chalk = require('chalk')
 const bodyParser = require('body-parser')
 const express = require('express')
-const PORT = process.env.PORT || 1337
 const { db } = require('./server/db/models')
+const logger = require('./server/utils/logger')
+const PORT = process.env.PORT || 1337
+const current = process.env.NODE !== '/app/.heroku/node/bin/node' ? `http://localhost:${PORT}` : 'https://postgress-express-backend.herokuapp.com'
 const fullStack = express()
-
 const buildStack = async () => {
   // logging middleware
-  fullStack.use(volleyball)
-  
+  fullStack.use(logger)
+
   // body parsing middleware
   fullStack.use(bodyParser.json())
   fullStack.use(bodyParser.urlencoded({extended: true}))
-  
+
   // api routes
   fullStack.use('/api', require('./server/api'))
   
@@ -25,7 +25,7 @@ const buildStack = async () => {
   
   // serve static files
   fullStack.use('/static', express.static('./client/public/'))
-  
+
   // error handling endware
   fullStack.use((err, req, res, next) => {
     console.error(err)
@@ -34,10 +34,12 @@ const buildStack = async () => {
   })
 }
 
-const bootServer = async () => { // TD: make sure thisand the other bootServer aren't blocking the logging middlewares, try .then try await
+const bootServer = async () => {
   try {
-    await db.sync().then(chalkAnimation.rainbow('The postgres server is up and running - maybe you should go catch it!'))
-    await fullStack.listen(PORT, () => chalkAnimation.neon(`Your server kindly awaits your attention on port ${PORT}`))
+    await db.sync()
+    console.log(chalk.green(`Postgres server is up and running!`))
+    await fullStack.listen(PORT)
+    console.log(chalk.blue(`API listening on port:${PORT}`))
   } catch (err) {
     console.error(err)
   }
@@ -47,8 +49,9 @@ const serveClient = async () => {
   const nextDistroEnrollmentForm = require('./client/utils/data.js')
   try {
     await fullStack.get('/', (req, res) => {
-      nextDistroEnrollmentForm.data.then( (data) => res.status(200).render('index', {data}))
+      nextDistroEnrollmentForm.then( data => res.status(200).render('index', {data}))
     })
+    console.log(chalk.magenta(`Client awaits at ${current}`))
   } catch (err) {
     console.error(err)
   }

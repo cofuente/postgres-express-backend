@@ -1,4 +1,4 @@
-'use strict' // TD: figure out why we're using strict here
+'use strict' // TODO: figure out why we're using strict here
 
 const db = require('../db/_db')
 const chalk = require('chalk')
@@ -47,7 +47,7 @@ async function runSeed() {
   }
 }
 
-// TD: check if below is still true
+// TODO: check if below is still true
 // Execute the `seed` function, IF we ran this module directly (`node seed`).
 // `Async` functions always return a promise, so we can use `catch` to handle
 // any errors that might occur inside of `seed`.

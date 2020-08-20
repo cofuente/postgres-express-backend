@@ -1,13 +1,13 @@
 const express = require('express')
-const volleyball = require('volleyball')
 const bodyParser = require('body-parser')
-const chalkAnimation = require('chalk-animation')
-const PORT = process.env.PORT || 1337
+const chalk = require('chalk')
 const { db } = require('./db/models')
+const logger = require('./utils/logger')
+const PORT = process.env.PORT || 1337
 const server = express()
 
 // logging middleware
-server.use(volleyball)
+server.use(logger)
 
 // body parsing middleware
 server.use(bodyParser.json())
@@ -24,10 +24,10 @@ server.use((err, req, res, next) => {
 })
 
 const bootServer = async () => {
-  // TD: figure out how to unobscure request logger; idea: create sub app and use on mount event 
   try {
-    await db.sync().then(chalkAnimation.rainbow('The postgres server is up and running - maybe you should go catch it!'))
-    await server.listen(PORT, () => chalkAnimation.neon(`Your server kindly awaits your attention on port ${PORT}`))
+    await db.sync()
+    await server.listen(PORT)
+console.log(chalk.black.bgBlueBright('Server is up and running'))
   } catch (err) {
     console.error(err)
   }
