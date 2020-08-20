@@ -15,7 +15,7 @@ const buildStack = async () => {
   fullStack.use(bodyParser.json())
   fullStack.use(bodyParser.urlencoded({extended: true}))
 
-  // mounting backEnd to fullStack
+  // api routes
   fullStack.use('/api', require('./server/api'))
   
   // serve Jade files 
