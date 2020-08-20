@@ -1,14 +1,13 @@
 const express = require('express')
-const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const chalk = require('chalk')
 const PORT = process.env.PORT || 1337
 const { db } = require('./db/models')
-const morganConfig = require('./utils/morganConfig')
+const logger = require('./utils/logger')
 const server = express()
 
 // logging middleware
-server.use(morgan(morganConfig))
+server.use(logger)
 
 // body parsing middleware
 server.use(bodyParser.json())

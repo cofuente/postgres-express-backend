@@ -1,16 +1,15 @@
 const path = require('path')
 const chalk = require('chalk')
-const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const express = require('express')
 const PORT = process.env.PORT || 1337
 const current = process.env.NODE !== '/app/.heroku/node/bin/node' ? `http://localhost:${PORT}` : 'https://postgress-express-backend.herokuapp.com'
 const { db } = require('./server/db/models')
 const fullStack = express()
-const morganConfig = require('./server/utils/morganConfig')
+const logger = require('./server/utils/logger')
 const buildStack = async () => {
   // logging middleware
-  fullStack.use(morgan(morganConfig))
+  fullStack.use(logger)
 
   // body parsing middleware
   fullStack.use(bodyParser.json())
