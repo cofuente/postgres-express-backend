@@ -33,6 +33,7 @@ const buildStack = async () => {
     res.status(err.status || 500).send(err.message || 'Internal server error.')
   })
 }
+const postFormattedData = require('./client/utils/submission.js')
 
 const bootServer = async () => {
   try {
@@ -51,6 +52,10 @@ const serveClient = async () => {
     await fullStack.get('/', (req, res) => {
       nextDistroEnrollmentForm.then( data => res.status(200).render('index', {data}))
     })
+    .post('/', function(req,res){
+      var data = req.body;
+      postFormattedData(data)
+    })    
     console.log(chalk.magenta(`Client awaits at ${current}`))
   } catch (err) {
     console.error(err)
