@@ -300,10 +300,20 @@ const questionData = [
     questionType: 'checkbox',
     questionPrompt: 'What drugs have you used in the past 30 days?',
     possibleAnswers: [
-      ['Less than once per day', 'Less than once per day'],
-      ['Once per day', '2 - 5 Times per day'],
-      ['6 - 10 Times per day', '6 - 10 Times per day'],
-      ['11+ Times per day', '11+ Times per day'],
+      ['Heroin','Heroin'],
+      ['Cocaine','Cocaine'],
+      ['Methamphetamine','Methamphetamine'],
+      ['Crack-cocaine','Crack-cocaine'],
+      ['Marijuana','Marijuana'],
+      ['Alcohol','Alcohol'],
+      ['Methadone (prescribed/from a doctor)','Methadone (prescribed/from a doctor)'],
+      ['Methadone (not prescribed)','Methadone (not prescribed)'],
+      ['Buprenorphine (prescribed/from a doctor)','Buprenorphine (prescribed/from a doctor)'],
+      ['Buprenorphine (not prescribed)','Buprenorphine (not prescribed)'],
+      ['Other opiates such as Oxycontin, Vicodin, Percocet, etc.','Other opiates such as Oxycontin, Vicodin, Percocet, etc.'],
+      ['Benzos such as Valium, Ativan, Xanax','Benzos such as Valium, Ativan, Xanax'],
+      ['Synthetic marijuana/ K2','Synthetic marijuana/ K2'],
+      ['Other','Other']
     ]
   },
   {
@@ -320,11 +330,6 @@ const questionData = [
     questionUUID: '53eea840-5a58-4758-a19a-597af757fd8f',
     questionType: 'heading',
     questionPrompt: 'THE FOLLOWING QUESTIONS ARE ABOUT OPIOID OVERDOSE',
-  },
-  {
-    questionUUID: 'a508075f-3757-4644-9d27-04bae424bae3',
-    questionType: 'input',
-    questionPrompt: 'How do you currently dispose of your used syringes? Please be specific.',
   },
   { 
     questionUUID: '394376d2-a161-4bbe-b0b4-b4dd400b99b6',
