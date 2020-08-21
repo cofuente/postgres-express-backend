@@ -89,7 +89,7 @@ const questionData = [
   },
   {
     questionUUID: 'c0e71e1b-c7d0-47dd-8b7b-17ebc37a7b95',
-    questionType: 'input',
+    questionType: 'number',
     questionPrompt: 'Zip Code',
   },
   { 

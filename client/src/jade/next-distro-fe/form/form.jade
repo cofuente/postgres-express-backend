@@ -4,6 +4,8 @@
   each field in api.questions
     if field.questionType === "input"
       include partials/_input
+    if field.questionType === "number"
+      include partials/_number
     if field.questionType === "date"
       include partials/_date
     if field.questionType === "checkbox"
