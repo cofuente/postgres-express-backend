@@ -3,6 +3,12 @@ var axios = require('axios');
 
 const current = process.env.NODE !== '/app/.heroku/node/bin/node' ? 'http://localhost:1337' : 'https://postgress-express-backend.herokuapp.com'
 
+const options = {
+  headers: {
+      'Content-Type': 'application/json',
+  }
+};
+
 module.exports = (data) => {
   let submission = {}
   let uuid = Object.keys(data)
@@ -24,7 +30,7 @@ module.exports = (data) => {
 
 const submitData = {
   axiosPost: function(formattedSubmission){
-    axios.post(`${current}/api/submissions`, formattedSubmission)
+    axios.post(`${current}/api/submissions`, formattedSubmission, options)
     .then(res => {
       console.log(`statusCode: ${res.statusCode}`)
       console.log(res)
