@@ -17,6 +17,7 @@ a {
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: rgba(82,194,200,.3);
+    text-decoration: none;
 }
 
 a:hover {
@@ -26,6 +27,10 @@ a:hover {
 
 a:active, a:focus {
     outline: 0;
+}
+
+u {
+    text-decoration: none;
 }
 
 p:first-child {
@@ -98,7 +103,6 @@ input[type=submit] {
     height: auto;
     padding: 1em 2.5em;
     color: #fff;
-    background-color: #272727;
     border-width: 0;
     font-family: "Montserrat", "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 12px;
@@ -142,31 +146,13 @@ input {
     display: inline-block;
     text-align: start;
     appearance: textfield;
-    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    background-color: #fafafa;
     -webkit-rtl-ordering: logical;
     cursor: text;
     margin: 0em;
     font: 400 13.3333px Arial;
-    padding: 1px 2px;
     border-width: 2px;
     border-style: inset;
-    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(195, 195, 195));
-    border-image: initial;
-}
-
-input[type="submit" i] {
-    appearance: push-button;
-    user-select: none;
-    white-space: pre;
-    align-items: flex-start;
-    text-align: center;
-    cursor: default;
-    color: -internal-light-dark(buttontext, rgb(170, 170, 170));
-    background-color: -internal-light-dark(rgb(239, 239, 239), rgb(74, 74, 74));
-    box-sizing: border-box;
-    padding: 1px 6px;
-    border-width: 2px;
-    border-style: outset;
     border-color: -internal-light-dark(rgb(118, 118, 118), rgb(195, 195, 195));
     border-image: initial;
 }
@@ -176,7 +162,7 @@ input[type="checkbox" i] {
     cursor: default;
     appearance: checkbox;
     box-sizing: border-box;
-    margin: 3px 3px 3px 4px;
+    margin: 3px 6px 3px 4px;
     padding: initial;
     border: initial;
 }
@@ -188,12 +174,9 @@ input[type="checkbox" i] {
 }
 
 .button {
-    padding: 13px 26px;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding: 1em 2.5em;
     font-size: 12px;
     font-family: proxima-nova;
-    font-size: 15px;
-    font-weight: 600;
     font-style: normal;
     text-transform: uppercase;
     color: #fff;
@@ -257,8 +240,16 @@ button, input, select, textarea {
     margin: 0;
 }
 
+input, select, textarea, .input, .select, .textarea, .input input, .select select, .textarea textarea, fieldset, .field fieldset {
+    border: 1px solid #dbdbdb;
+}
+
 .button {
     border-radius: 300px;
+}
+
+.button + .button {
+    margin-left: 12px;
 }
 
 .form-wrapper {
@@ -283,4 +274,11 @@ button, input, select, textarea {
     border-radius: 50%;
     display: inline-block;
     opacity: 0.5;
+}
+
+.field {
+    position: relative;
+    height: auto;
+    padding-top: 17px;
+    padding-bottom: 17px;
 }
