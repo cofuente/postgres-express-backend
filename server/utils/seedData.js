@@ -2,21 +2,25 @@
 const questionData = [
   { 
     questionUUID: '50e1ee43-03f6-4231-affc-195ee76c7e12',
+    required: true,
     questionType: 'input',
     questionPrompt: 'Please tell us how you learned about NEXT. Be specific.',
   },
   {
     questionUUID: '842c7508-b000-4fc7-9c9f-4e934d0b8ed0',
+    required: true,
     questionType: 'input',
     questionPrompt: 'First Name',
   },
   { 
     questionUUID: '26464b66-7afb-443d-bc69-e6b3cb16ecfa',
+    required: true,
     questionType: 'input',
     questionPrompt: 'Last Name',
   },
   {
     questionUUID: 'b1a3c65a-1ddd-4666-a1b0-4d2842577094',
+    required: true,
     questionType: 'input',
     questionPrompt: 'Address (this is the location where you want supplies sent in your name)',
   },
@@ -32,6 +36,7 @@ const questionData = [
   },
   { 
     questionUUID: '31a4dec2-6587-4232-9925-2c106fb50494',
+    required: true,
     questionType: 'dropdown',
     questionPrompt: 'State',
     possibleAnswers: [
@@ -89,16 +94,19 @@ const questionData = [
   },
   {
     questionUUID: 'c0e71e1b-c7d0-47dd-8b7b-17ebc37a7b95',
+    required: true,
     questionType: 'number',
     questionPrompt: 'Zip Code',
   },
   { 
     questionUUID: '98e8fa30-9792-4081-830f-96a236fac83d',
+    required: true,
     questionType: 'date',
     questionPrompt: 'Date of Birth',
   },
   {
     questionUUID: 'b9dc6102-502b-4ab6-b4f3-2b3ee161b5ce',
+    required: true,
     questionType: 'dropdown',
     questionPrompt: 'Gender',
     possibleAnswers: [
@@ -111,6 +119,7 @@ const questionData = [
   },
   { 
     questionUUID: '43aea536-e644-4d67-8881-11873f4c10f6',
+    required: true,
     questionType: 'dropdown',
     questionPrompt: 'Would you describe yourself as transgender?',
     possibleAnswers: [
@@ -123,11 +132,13 @@ const questionData = [
   },
   {
     questionUUID: '440af351-63d2-454b-a3af-a18d40d9d8f5',
+    required: true,
     questionType: 'input',
     questionPrompt: 'How would you describe your sexual orientation (some answers may include gay, straight, bisexual, queer, lesbian, etc)',
   },
   { 
     questionUUID: '872af9f8-d99c-46e0-b222-a1cbdc6490d4',
+    required: true,
     questionType: 'dropdown',
     questionPrompt: 'I am a US veteran or in active duty',
     possibleAnswers: [
@@ -137,6 +148,7 @@ const questionData = [
   },
   {
     questionUUID: '01fffdfa-a893-47e2-8ee0-60809cd57726',
+    required: true,
     questionType: 'dropdown',
     questionPrompt: 'I am pregnant or may be pregnant:',
     possibleAnswers: [
@@ -148,6 +160,7 @@ const questionData = [
   },
   { 
     questionUUID: 'ed716db9-9a0d-4054-866e-37e0725fd8a3',
+    required: true,
     questionType: 'dropdown',
     questionPrompt: 'I am a parent, or parenting',
     possibleAnswers: [
@@ -176,6 +189,7 @@ const questionData = [
   },
   {
     questionUUID: 'cd6e3ccf-279b-4fa3-bbd3-e566a3d99773',
+    required: true,
     questionType: 'dropdown',
     questionPrompt: 'What is your preferred language?',
     possibleAnswers: [
@@ -193,6 +207,7 @@ const questionData = [
   },
   {
     questionUUID: 'c2c0d01f-4187-4f51-9b3b-8ad246aa11cc',
+    required: true,
     questionType: 'dropdown',
     questionPrompt: 'Do you have health insurance?',
     possibleAnswers: [
@@ -203,6 +218,7 @@ const questionData = [
   },
   {
     questionUUID: 'aa28ef3c-d32b-40ea-9ca8-3b4e911a7d3a',
+    required: true,
     questionType: 'dropdown',
     questionPrompt: 'Do you currently have a Primary Care Provider? That is, a doctor, nurse or physician assistant you see when it is not an emergency.',
     possibleAnswers: [
@@ -213,6 +229,7 @@ const questionData = [
   },
   { 
     questionUUID: '07136a3c-5439-4f70-bc4b-3788578e99dd',
+    required: true,
     questionType: 'input',
     questionPrompt: 'If you have been hospitalized within the past six months, how many times?',
   },
@@ -236,6 +253,7 @@ const questionData = [
   },
   {
     questionUUID: 'd54adbba-1524-4568-93d7-dc5c1cffaf31',
+    required: true,
     questionType: 'dropdown',
     questionPrompt: 'What is your housing status?',
     possibleAnswers: [
@@ -250,6 +268,7 @@ const questionData = [
   },
   { 
     questionUUID: '2691ed4e-3256-4c3f-95eb-92050cd12ed6',
+    required: true,
     questionType: 'dropdown',
     questionPrompt: 'Have you been arrested or incarcerated in the past year?',
     possibleAnswers: [
@@ -276,11 +295,13 @@ const questionData = [
   },
   {
     questionUUID: '2ae2c762-2373-4034-b2af-959304a39b19',
+    required: true,
     questionType: 'input',
     questionPrompt: 'How old were you when you started injecting drugs?',
   },
   { 
     questionUUID: 'f766957a-e5b0-4e90-a239-8071102e96f8',
+    required: true,
     questionType: 'dropdown',
     questionPrompt: 'About how many times per day do you inject?',
     possibleAnswers: [
@@ -292,11 +313,13 @@ const questionData = [
   },
   {
     questionUUID: '8575fc03-b4fe-4f5d-9353-0b502baac1ac',
+    required: true,
     questionType: 'input',
     questionPrompt: 'How do you currently dispose of your used syringes? Please be specific.',
   },
   { 
     questionUUID: 'a6ba3467-cd78-4e1c-9f3c-567edf5651d0',
+    required: true,
     questionType: 'checkbox',
     questionPrompt: 'What drugs have you used in the past 30 days?',
     possibleAnswers: [
@@ -318,6 +341,7 @@ const questionData = [
   },
   {
     questionUUID: '34936d25-314a-4664-abc1-693dbd2068e0',
+    required: true,
     questionType: 'radio',
     questionPrompt: 'Do you inject pills?',
     possibleAnswers: [
@@ -338,6 +362,7 @@ const questionData = [
   },
   {
     questionUUID: '33ef7055-5edf-4edf-baf9-83d6ef9b076b',
+    required: true,
     questionType: 'dropdown',
     questionPrompt: 'Do you currently have naloxone (or Narcan)?',
     possibleAnswers: [
@@ -348,6 +373,7 @@ const questionData = [
   },
   {
     questionUUID: '21d865c3-1d3c-4e99-9968-8405b90f9c5f',
+    required: true,
     questionType: 'dropdown',
     questionPrompt: 'Have you overdosed in the past year?',
     possibleAnswers: [
@@ -358,6 +384,7 @@ const questionData = [
   },
   {
     questionUUID: '3e53d554-f50a-4866-85ec-aeab31af2c64',
+    required: true,
     questionType: 'dropdown',
     questionPrompt: 'Have you witnessed someone overdose in the past year?',
     possibleAnswers: [
@@ -368,11 +395,13 @@ const questionData = [
   },
   {
     questionUUID: 'e496c927-bb34-4c43-9115-83e43889ed05',
+    required: true,
     questionType: 'input',
     questionPrompt: 'Where do you currently obtain injection related supplies?',
   },
   {
     questionUUID: '753eda43-a227-4651-a3b2-b6538ce6f54c',
+    required: true,
     questionType: 'input',
     questionPrompt: 'Can you explain why you have difficulty accessing syringes in your own community? Please be as specific as possible.',
   },
@@ -388,6 +417,7 @@ const questionData = [
   },
   {
     questionUUID: 'f77af752-cf87-48ec-86cc-eccc800be9f5',
+    required: true,
     questionType: 'dropdown',
     questionPrompt: 'We understand that in some circumstances, you may support other people in need with the supplies we send. If this is likely, about how many people do you expect will receive supplies that we send to you for their own use?',
     possibleAnswers: [
@@ -400,6 +430,7 @@ const questionData = [
   },
   {
     questionUUID: 'f04b3676-1999-47c5-9394-3c36421aa40c',
+    required: true,
     questionType: 'dropdown',
     questionPrompt: 'NEXT usually uses USPS, and we can send your package one of two ways. Please take a minute to think about which option works best for you:',
     possibleAnswers: [
@@ -409,8 +440,15 @@ const questionData = [
   },
   {
     questionUUID: '149deff5-7886-401d-a456-9fd480eb912b',
+    required: true,
     questionType: 'input',
     questionPrompt: 'Please provide a user handle, we will use this handle to communicate with you. Ensure the handle is one you\'ll remember. Please do not use any spaces. Examples are: Panda223, JoeShmo, Liz_Star, 777Ryder',
+  },
+  {
+    questionUUID: '149deff5-7886-401d-a456-9fd480eb912b',
+    required: true,
+    questionType: 'input',
+    questionPrompt: 'Please provide your user handle again. (Must be matching.)',
   },
   {
     questionUUID: '96ec1ef1-0767-41f6-9f19-8b538b7a09d6',
