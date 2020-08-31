@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'Adobe Garamond Pro';
+    src: url('../fonts/css/AdobeGaramondProRegular.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/css/AdobeGaramondProRegular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('../fonts/css/AdobeGaramondProRegular.woff2') format('woff2'), /* Modern Browsers */
+        url('../fonts/css/AdobeGaramondProRegular.woff') format('woff'), /* Modern Browsers */
+        url('../fonts/css/AdobeGaramondProRegular.ttf') format('truetype'), /* Safari, Android, iOS */
+        url('../fonts/css/AdobeGaramondProRegular.svg') format('svg'); /* Legacy iOS */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'Adobe Garamond Pro';
+  src: url('../fonts/css/AdobeGaramondProBold.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/css/AdobeGaramondProBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('../fonts/css/AdobeGaramondProBold.woff2') format('woff2'), /* Modern Browsers */
+      url('../fonts/css/AdobeGaramondProBold.woff') format('woff'), /* Modern Browsers */
+      url('../fonts/css/AdobeGaramondProBold.ttf') format('truetype'), /* Safari, Android, iOS */
+      url('../fonts/css/AdobeGaramondProBold.svg') format('svg'); /* Legacy iOS */
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Adobe Garamond Pro';
+  src: url('../fonts/css/AdobeGaramondProItalic.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/css/AdobeGaramondProItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('../fonts/css/AdobeGaramondProItalic.woff2') format('woff2'), /* Modern Browsers */
+      url('../fonts/css/AdobeGaramondProItalic.woff') format('woff'), /* Modern Browsers */
+      url('../fonts/css/AdobeGaramondProItalic.ttf') format('truetype'), /* Safari, Android, iOS */
+      url('../fonts/css/AdobeGaramondProItalic.svg') format('svg'); /* Legacy iOS */
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Adobe Garamond Pro';
+  src: url('../fonts/css/AdobeGaramondProBoldItalic.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/css/AdobeGaramondProBoldItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('../fonts/css/AdobeGaramondProBoldItalic.woff2') format('woff2'), /* Modern Browsers */
+      url('../fonts/css/AdobeGaramondProItalic.woff') format('woff'), /* Modern Browsers */
+      url('../fonts/css/AdobeGaramondProBoldItalic.ttf') format('truetype'), /* Safari, Android, iOS */
+      url('../fonts/css/AdobeGaramondProBoldItalic.svg') format('svg'); /* Legacy iOS */
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/css/Montserrat-Regular.eot"); /* IE9 Compat Modes */
+    src: url("../fonts/css/Montserrat-Regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+      url("../fonts/css/Montserrat-Regular.otf") format("opentype"), /* Open Type Font */
+      url("../fonts/css/Montserrat-Regular.svg") format("svg"), /* Legacy iOS */
+      url("../fonts/css/Montserrat-Regular.woff") format("woff"), /* Modern Browsers */
+      url("../fonts/css/Montserrat-Regular.woff2") format("woff2"); /* Modern Browsers */
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/css/Montserrat-Bold.eot"); /* IE9 Compat Modes */
+    src: url("../fonts/css/Montserrat-Bold.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+      url("../fonts/css/Montserrat-Bold.otf") format("opentype"), /* Open Type Font */
+      url("../fonts/css/Montserrat-Bold.svg") format("svg"), /* Legacy iOS */
+      url("../fonts/css/Montserrat-Bold.woff") format("woff"), /* Modern Browsers */
+      url("../fonts/css/Montserrat-Bold.woff2") format("woff2"); /* Modern Browsers */
+    font-weight: bold;
+    font-style: normal;
+  }
+

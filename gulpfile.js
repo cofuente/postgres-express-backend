@@ -23,23 +23,8 @@ var uglify = require('gulp-uglify');
 var lessSrcDir = './client/src/less/';
 var jadeSrcDir = './client/src/jade/';
 var assetsDir = './client/public/';
-var compiledStylesDir = assetsDir + 'stylesheets/';
-var libsDir = './client/libs/';
-
-/*
- Compiling less, using sourcemaps
- */
-gulp.task('less', function () {
-    gulp.src([
-        lessSrcDir + 'style.less'
-    ])
-        .pipe(sourcemaps.init())
-        .pipe(less({
-          outputStyle: 'expanded'
-      }))
-      .pipe(sourcemaps.write())
-      .pipe(gulp.dest(compiledStylesDir));
-});
+var compiledStylesDir = assetsDir + 'css/';
+var libsDir = './client/css/';
 
 /*
  Creating a styles build file consisted of all files specified in gulp.src
@@ -55,7 +40,7 @@ gulp.task('build:css', function () {
             safe: true
         }))
         .pipe(rename('build.min.css'))
-        .pipe(gulp.dest(assetsDir + 'stylesheets'));
+        .pipe(gulp.dest(assetsDir + 'css'));
 });
 
 
