@@ -31,6 +31,7 @@ const questionData = [
   },
   {
     questionUUID: '65809857-da07-4a65-8656-d158a5bb0b75',
+    required: true,
     questionType: 'input',
     questionPrompt: 'City',
   },
@@ -445,7 +446,7 @@ const questionData = [
     questionPrompt: 'Please provide a user handle, we will use this handle to communicate with you. Ensure the handle is one you\'ll remember. Please do not use any spaces. Examples are: Panda223, JoeShmo, Liz_Star, 777Ryder',
   },
   {
-    questionUUID: '149deff5-7886-401d-a456-9fd480eb912b',
+    questionUUID: '149deff5-7886-401d-a456-9fd480eb912c',
     required: true,
     questionType: 'input',
     questionPrompt: 'Please provide your user handle again. (Must be matching.)',
