@@ -1,9 +1,15 @@
 // Select Dropdown
 .field
-  label.label.required= field.questionPrompt
+  label.label(class=required)= field.questionPrompt
   .control
     .select
-      select(name= field.questionUUID, required='')
-        option(value='') --Select--
-        each choice in field.possibleAnswers
-          option(value=choice[0])= choice[1]
+      if required === "required"
+        select(name= field.questionUUID, required)
+          option(value='') --Select--
+          each choice in field.possibleAnswers
+            option(value=choice[0])= choice[1]
+      else
+        select(name= field.questionUUID)
+          option(value='') --Select--
+          each choice in field.possibleAnswers
+            option(value=choice[0])= choice[1]

@@ -1,9 +1,13 @@
 // Checkbox Options
 .field
-  label.label= field.questionPrompt
+  label.label(class=required)= field.questionPrompt
   fieldset(name=field.questionUUID)
     each choice in field.possibleAnswers
       .control
         label
-          input(type=field.questionType, value=choice[0])
-          = choice[1]
+          if required === "required"
+            input(type=field.questionType, value=choice[0], required)
+            = choice[1]
+          else
+            input(type=field.questionType, value=choice[0])
+            = choice[1]

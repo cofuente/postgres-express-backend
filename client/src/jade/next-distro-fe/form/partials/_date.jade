@@ -1,5 +1,8 @@
-// Input text field
+// Date field
 .field
-  label.label.required= field.questionPrompt
+  label.label(class=required)= field.questionPrompt
   .control
-    input.input(type= field.questionType name= field.questionUUID, required='')
+    if required === "required"
+      input.input(type= field.questionType name= field.questionUUID, required)
+    else
+      input.input(type= field.questionType name= field.questionUUID)

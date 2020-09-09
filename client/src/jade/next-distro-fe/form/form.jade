@@ -2,6 +2,7 @@
 .tab
   input(type="hidden", name="formUUID", value=api.formUUID)
   each field in api.questions
+    - var required = (field.required === true) ? "required" : ""
     if field.questionType === "input"
       include partials/_input
     if field.questionType === "number"

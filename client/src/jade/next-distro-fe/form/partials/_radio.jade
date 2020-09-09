@@ -1,8 +1,12 @@
 // Radio Button Options
 .field
-  label.label=field.questionPrompt
+  label.label(class=required)=field.questionPrompt
   each choice in field.possibleAnswers
     .control
       label.radio
-        input(type=field.questionType, name=field.questionUUID, value=choice[0], required='')
-        = choice[1]
+        if required === "required"
+          input(type=field.questionType, name=field.questionUUID, value=choice[0], required)
+          = choice[1]
+        else
+          input(type=field.questionType, name=field.questionUUID, value=choice[0])
+          = choice[1]
