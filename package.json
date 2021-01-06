@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/cofuente/postgres-express-backend#readme",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "chalk": "^4.1.0",
     "chalk-animation": "^1.6.0",
