@@ -48,7 +48,7 @@
     "imagemin-pngquant": "^4.2.0",
     "morgan": "^1.10.0",
     "pg": "^8.0.3",
-    "renovate": "^22.15.2",
+    "renovate": "^34.114.1",
     "request": "^2.88.2",
     "sequelize": "^5.21.7"
   },
